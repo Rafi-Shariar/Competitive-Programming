@@ -3,12 +3,13 @@ using namespace std;
 #define ll long long int
 int main(){
 
-    int t; cin>>t;
+  int a,b;
+  cin>>a>>b;
 
-    while (t--)
-    {
-        cout<<"1";
-    }
+   int all = (a+b) -1;
+
+   cout<<all-a<<" "<<all-b<<endl;
+
     
 
 

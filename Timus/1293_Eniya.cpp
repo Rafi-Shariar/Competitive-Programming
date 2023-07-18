@@ -3,12 +3,10 @@ using namespace std;
 #define ll long long int
 int main(){
 
-    int t; cin>>t;
+   int n,a,b;
+   cin>>n>>a>>b;
 
-    while (t--)
-    {
-        cout<<"1";
-    }
+   cout<< (a*b)*2*n<<endl;
     
 
 
