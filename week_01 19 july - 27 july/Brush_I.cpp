@@ -14,10 +14,10 @@ int main(){
         for (int i = 0; i < n; i++)
         {
             ll a; cin>>a;
-            sum += a;
+            if(a>0) sum += a;
         }
 
-        cout<<"case "<<j<<": "<<sum<<endl;
+        cout<<"Case "<<j<<": "<<sum<<endl;
 
         
     }
