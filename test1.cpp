@@ -1,45 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
-
-int count(int n){
-    int c=1;
-
-    while (n!=1)
-    {
-        if(n&1) n = (3*n) + 1;
-        else n= n/2;
-
-        c++;
-    }
-    
-    return c;
-}
 int main(){
 
-   int n,m;
+    int n; cin>>n;
+    int arr[n][n];
 
-   while (cin>>n>>m)
-   {
+    int mn = INT_MAX;
+    int mx = INT_MIN;
 
-   cout<<n<<" "<<m<<" ";
 
-   int mx=INT_MIN;
-   int ans = 0;
+    for( int i=0; i<n; i++){
+       for( int j=0; j<n; j++) {
+        cin>>arr[i][j];
+        mn = min(mn,arr[i][j]);
+        mx = max(mx,arr[i][j]);
 
-   if(n>m) swap(n,m);
- 
-   for (int i = n; i <=m; i++)
-   {
-      int tmp = count(i);
-      mx = max(mx,tmp);
+       }
+    }
 
-   }
+    int x = arr[0][0];
+    int y = arr[n-1][n-1];
 
-   cout<<mx<<endl;
+    for(int i=mn; i<=mx; i++) cout<<i<<" ";
+    cout<<endl;
 
-   }
-   
 
     return 0;
 }
