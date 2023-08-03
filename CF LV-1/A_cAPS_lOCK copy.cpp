@@ -25,12 +25,11 @@ int main(){
             {
                 if(s[i]>='A' && s[i]<='Z') s[i] = s[i] + 32;
             }
-
-            
+ 
         }
 
-        cout<<endl;
-        
+        cout<<endl; 
+
     }
     else if(cap==s.size()){
 
@@ -41,13 +40,7 @@ int main(){
         
     }
 
-    
-    
         cout<<s<<endl;
-    
-    
-    
-
 
     return 0;
 }

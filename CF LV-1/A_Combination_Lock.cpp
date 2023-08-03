@@ -8,7 +8,6 @@ int main(){
     string s1,s2;
     cin>>s1>>s2;
 
-
     int c=0;
 
     for(int i=0; i<n;  i++)
@@ -17,7 +16,6 @@ int main(){
        int b = s2[i] - '0';
 
       // cout<<min( abs(a-b), ( 10- max(b,a)) + min(a,b))<<endl;
-
 
        c += min( abs(a-b), ( 10- max(b,a)) + min(a,b));
 

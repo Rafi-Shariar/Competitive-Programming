@@ -16,7 +16,6 @@ int main(){
             arr[i][j] = arr[i-1][j] + arr[i][j-1];
         }
         
-
      }
      
    }
@@ -25,8 +24,6 @@ int main(){
 
    cout<<arr[n][n]<<endl;
    
-    
-
 
     return 0;
 }

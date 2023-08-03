@@ -13,7 +13,6 @@ int main(){
     if(v[0]==1) cout<<-1<<endl;
     else cout<<1<<endl;
     
-
-
+    
     return 0;
 }

@@ -10,10 +10,6 @@ int main(){
    //cout<<mn<<endl;
 
    cout<<mn + (mn-1) + (mn-2)<<endl;
-   
-   
-
-
 
     return 0;
 }

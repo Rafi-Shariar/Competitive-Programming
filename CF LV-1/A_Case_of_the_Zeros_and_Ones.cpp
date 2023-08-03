@@ -14,8 +14,6 @@ int main(){
     if(s.empty()) s.push(a);
     else
     {
-
-       
         if(s.top()!=a ){
             s.pop();
         }
