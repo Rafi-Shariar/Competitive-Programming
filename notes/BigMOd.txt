@@ -1,0 +1,16 @@
+ll bigMod(ll b, ll p, ll m) {
+    if (p == 0) return 1;
+    
+    ll result = 1;
+    b %= m; 
+    
+    while (p > 0) {
+     
+        if (p % 2 == 1) result = (result * b) % m;
+    
+        b = (b*b) % m;
+        p /= 2;
+    }
+    
+    return result;
+}

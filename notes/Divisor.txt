@@ -1,0 +1,27 @@
+** Number of divisors of a number
+
+ll numberofDivisor( ll n){
+    map<ll,int>mp;
+    while( n%2==0){
+        mp[2]++;
+        n/=2;
+    }
+
+    for (ll i = 3; i <= sqrt(n); i+=2)
+    {
+        while( n % i == 0){
+            mp[i]++;
+            n/=i;
+        }
+    }
+
+    if(n>2) mp[n]++;
+
+    ll ans = 1;
+    for( auto i : mp){
+        ans *= (i.second + 1);
+    }
+
+    return ans;
+
+}
