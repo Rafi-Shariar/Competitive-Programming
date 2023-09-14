@@ -95,3 +95,5 @@ ostream &operator <<(ostream &os, unordered_map<T1,T2>&v)
 
 //this memsets by 1e9
 //memset(x,63,sizeof x);
+
+//Setting →  compiler → #defines → write “LOKAL” → OK

@@ -23,7 +23,7 @@ int main()
 
     while(t--)
     {
-        cout<<"YES"<<endl;
+        
     }
 
     return 0;

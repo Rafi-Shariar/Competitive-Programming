@@ -1,0 +1,318 @@
+----------------- number theory ----------------
+
+** Number of divisors of a number
+
+ll numberofDivisor( ll n){
+    map<ll,int>mp;
+    while( n%2==0){
+        mp[2]++;
+        n/=2;
+    }
+
+    for (ll i = 3; i <= sqrt(n); i+=2)
+    {
+        while( n % i == 0){
+            mp[i]++;
+            n/=i;
+        }
+    }
+
+    if(n>2) mp[n]++;
+
+    ll ans = 1;
+    for( auto i : mp){
+        ans *= (i.second + 1);
+    }
+
+    return ans;
+
+}
+
+
+*** optimise prime check
+
+bool prime(int num){
+
+   if (num <= 1)return false; 
+   if (num <= 3) return true;
+   if (num % 2 == 0 || num % 3 == 0) return false;
+
+    for (int i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0) {
+            return false;
+        }
+    }
+
+    return true;
+    
+}
+
+ **** seive regular
+
+ const int N=1e6;
+bool marked[N];
+
+void sieve(int n) {
+    marked[0] = marked[1] = true;
+    for( int i = 4; i<N; i+=2) marked[i] = true;
+
+    for (int i = 3; i * i <= n; i+=2) {
+        if (!marked[i]) { 
+            for (int j = i * 2; j < n; j += i) {
+                marked[j] = true; 
+            }
+        }
+    }
+}
+
+
+*** seive for generation 664579 prime numbers
+const int N=90000001;
+bool marked[N+5];
+vector<int>v;
+
+void seive(){
+
+    marked[0]=marked[1]=true;
+    v.push_back(2);
+    for( int i=4; i<N; i+=2) marked[i]=true;
+
+    for( int i=3; i<=N; i+=2){
+
+        if(!marked[i]){
+            v.push_back(i);
+            
+            if(i<=sqrt(N)){
+
+                for (int j = i*i; j <= N; j+=i*2) marked[j]= true;
+                
+            }
+        }
+    }
+}
+
+
+*** segment seive
+
+vector<ll> segment_sieve(ll l, ll r) {
+    ll lim = sqrt(r);
+    vector<bool> marked(lim + 1, false);
+    vector<ll> primes_r;
+
+    for (ll i = 2; i <= lim; i++) {
+        if (!marked[i]) {
+            primes_r.push_back(i);
+            for (ll j = i * i; j <= lim; j += i)
+                marked[j] = true;
+        }
+    }
+
+    vector<bool> seg_marked(r - l + 1, true);
+
+    for (auto i : primes_r) {
+        for (ll j = max(i * i, (l + i - 1) / i * i); j <= r; j += i) {
+            seg_marked[j - l] = false;
+        }
+    }
+
+    if (l == 1)
+        seg_marked[0] = false;
+
+    vector<ll> primes_in_segment;
+    for (ll i = l; i <= r; i++) {
+        if (seg_marked[i - l]) {
+            primes_in_segment.push_back(i);
+        }
+    }
+
+    return primes_in_segment;
+}
+
+
+
+*** Big mode
+ll bigMod(ll b, ll p, ll m) {
+    if (p == 0) return 1;
+    
+    ll result = 1;
+    b %= m; 
+    
+    while (p > 0) {
+     
+        if (p % 2 == 1) result = (result * b) % m;
+    
+        b = (b*b) % m;
+        p /= 2;
+    }
+    
+    return result;
+}
+
+
+------------------------------------------------------------------------------------------
+
+** Custom comperator
+bool comp( pair<int,int>x, pair<int,int>y){
+    if(x.first == y.first) return x.second > y.second;
+    return x.first < y.first;
+}
+
+
+** string to interger convert 
+ll stringToInt(string& s)
+{
+    ll ans = 0;
+    for (int i = 0; i < s.size(); i++)
+        ans = ans * 10 + (s[i] - '0');
+    return ans;
+} 
+
+
+
+
+---------- Graph theory -------------
+
+*** BFS
+void BFS(int src){
+
+    queue<int>q;
+    visited[src]=1;
+    q.push(src);
+
+    while (!q.empty())
+    {
+        int head = q.front();
+        q.pop();
+        cout<<head<<" ";
+        for( int i : adj_list[head]){
+
+        if (visited[i]==0)
+        {
+            visited[i]=1;
+            q.push(i);
+        }
+       
+        }
+    }   
+}
+
+**** DFS
+void DFS(int node){
+
+    cout<<node<<" ";
+    
+    visited[node]=1;
+
+    for (int adj_node : adj_list[node])
+    {
+        if (visited[adj_node]==0)
+        {
+            DFS(adj_node);
+        }   
+    }   
+}
+
+
+*** Flood fill 
+int dx[] = {0, 0, -1, 1};
+int dy[] = {1, -1, 0, 0};
+
+
+bool is_inside(pair<int, int>coord) {
+    int x = coord.first;
+    int y = coord.second;
+
+    if(x >= 0 && x < n && y >= 0 &&  y < m) {
+        return true;
+    }
+    return false;
+}
+
+bool is_safe(pair<int, int>coord) {
+    int x = coord.first;
+    int y = coord.second;
+    if(maze[x][y] == -1) {
+        return false;
+    }
+    return true;
+}
+
+void bfs(pair<int, int>src) {
+
+    queue< pair<int, int> >q;
+    visited[src.first][src.second] = 1;
+
+    q.push(src);
+
+    while(!q.empty()) {
+        pair<int,int>head = q.front();
+        q.pop();
+        int x = head.first;
+        int y = head.second;
+
+        for(int i = 0 ; i < 4 ; i++) {
+            int new_x = x + dx[i];
+            int new_y = y + dy[i];
+
+            pair<int,int>adj_node = {new_x, new_y};
+
+            if(is_inside(adj_node) && is_safe(adj_node) && visited[new_x][new_y] == 0) {
+                visited[new_x][new_y] = 1;
+                q.push(adj_node);
+            }
+        }
+    }
+}
+
+
+
+
+
+*** DIJSKTRA
+    const int N = 1e5;
+    const int infinity = 1e9;
+
+    vector< pair<int,int> >adj_list[N];
+    int d[N], visited[N];
+    int node,egdes;
+
+    void dijkstra(int src){
+
+      for (int i = 1; i <= node+1; i++)
+      {
+            d[i] = infinity;
+      }
+
+      d[src] = 0;
+
+      for (int i = 0; i < node; i++)
+      {
+            int selected_node = -1;
+
+            for (int j = 1; j <= node; j++)
+            {
+                  if(visited[j] == 1) continue;
+
+                  if(selected_node == -1 || d[selected_node] > d[j]){
+
+                        selected_node = j;
+                  }
+            }
+
+            visited[selected_node] = 1;
+
+            for( auto  i : adj_list[selected_node] ){
+
+                  int adj_node = i.first;
+                  int edge_cost = i.second;
+
+                  if( d[selected_node] + edge_cost < d[adj_node]){
+
+                        d[adj_node] = d[selected_node] + edge_cost;
+                  }
+            }
+            
+      }
+      
+}
+
