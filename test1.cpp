@@ -15,39 +15,47 @@ void fast(){
     cin.tie(nullptr);
 }
 
-bool solve(ll n, ll now){
+void solve(int i, int n, vector<int>&v,  set<vector<int>>&ans, vector<int>&tmp){
 
-    if(now>n) return false;
-
-    if(now==n){
-        return true;
+    if(i==n){
+        ans.insert(tmp);
+        return;
     }
 
-    return solve(n, now*10) || solve(n, now*20);
-  
-   
+    tmp.push_back(v[i]);
+    solve(i+1, n, v, ans, tmp);
+
+    tmp.pop_back();
+    solve(i+1, n, v, ans, tmp);
 }
 int main()
 {
     fast();
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while(t--)
     {
-        ll n; cin>>n;
+        vector<int>v = {4,4,4,1,4};
 
-        int pos = 0;
+        int n = v.size();
 
-        if(solve(n,1)) cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        vector<int>tmp;
+        set<vector<int>>ans;
+        solve(0,n,v,ans,tmp);
 
-        // if(pos) cout<<"YES"<<endl;
-        // else cout<<"NO"<<endl;
+        vector<vector<int>>sol;
 
-       
-         
+        for(auto i : ans){
+
+            sol.push_back(i);
+        }
+
+
+    
+          debug(sol);
+        
     }
 
     return 0;

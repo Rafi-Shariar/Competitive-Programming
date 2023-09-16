@@ -19,7 +19,9 @@ void solve(int ind, vector<int>&ans, vector<int>&v, int n){
 
 }
 
-*print sequence of target sum
+------------------------------------------------------------------------------------------------------------------------------------
+
+******* print sequence of target sum
 void solve(int i, vector<int>&v, int sum, int target, vector<int>&ans, int n){
 
     if(i==n){
@@ -41,4 +43,79 @@ void solve(int i, vector<int>&v, int sum, int target, vector<int>&ans, int n){
     ans.pop_back();
     sum-=v[i];
     solve(i+1, v, sum, target, ans, n);
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+*** Combination sum - I
+
+void solve(int ind, vector<int>&v, int target,  vector< vector<int> >ans, vector<int>tmp){
+
+    if( ind == v.size()){
+        if(target == 0) ans.push_back(tmp);
+        return;
+    }
+
+    //pick
+    if(v[ind] <= target){
+        tmp.push_back( v[ind]);
+        solve(ind, v, target - v[ind], ans, tmp); // ind != idn + 1 bcz we can take the element again
+        tmp.pop_back();
+    }
+
+    //not pick
+    solve(ind+1, v, target, ans, tmp);
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+** Combination sum - II  ( find unique combinations == target and print them in lexicographically sorted order
+We have to sort the array first 
+)
+
+ void findcombinations(int idx, int target, vector<int>&v, vector< vector<int>>&ans, vector<int>&ds){
+
+    if(target == 0 ){
+        ans.push_back(ds);
+        return;
+    }
+
+    for (int i = idx; i < v.size(); i++)
+    {
+        if( i>idx && v[i]==v[i-1]) continue;
+        if( v[i] > target) break;
+        ds.push_back(v[i]);
+        findcombinations(i+1, target - v[i], v, ans, ds);
+        ds.pop_back();
+
+    }
+    
+ }
+
+
+
+ -----------------------------------------------------------------------------------
+
+ ** generating all permutations
+
+ void solve(int n, vector<int>&v, vector< vector<int>>&ans, vector<int>&ds, map<int, bool>&mp){
+
+    if(ds.size()==n){
+        ans.push_back(ds);
+         return;
+    }
+   
+   for (int i = 0; i < n ; i++)
+   {
+       if(!mp[i]){
+
+    ds.push_back(v[i]);
+    mp[i] = true;
+    solve( n, v, ans, ds, mp);
+    ds.pop_back();
+    mp[i] = false;
+
+   }
+
+   }
+   
 }
