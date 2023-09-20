@@ -15,47 +15,94 @@ void fast(){
     cin.tie(nullptr);
 }
 
-void solve(int n, vector<int>&v, vector< vector<int>>&ans, vector<int>&ds, map<int, bool>&mp){
+bool isvalid(vector<vector<char>>&board, int row, int col, char c){
 
-    if(ds.size()==n){
-        ans.push_back(ds);
-         return;
+    for (int i = 0; i < board.size(); i++)
+    {
+        if(board[row][i] == c) return false;
+        if(board[i][col] == c) return false;
     }
-   
-   for (int i = 0; i < n ; i++)
-   {
-       if(!mp[i]){
 
-    ds.push_back(v[i]);
-    mp[i] = true;
-    solve( n, v, ans, ds, mp);
-    ds.pop_back();
-    mp[i] = false;
+    return true;
+    
 
-   }
+}
 
-   }
-   
+bool solve( vector<vector<char>>&board){
+
+    for (int i = 0; i < board.size(); i++)
+    {
+        for (int j = 0; j < board[i].size(); j++)
+        {
+             if(board[i][j]=='.'){
+
+                for (char c = '1'; c <= '4'; c++)
+                {
+                    if(isvalid(board, i, j, c)){
+
+                        board[i][j] = c;
+
+                        if(solve(board)) return true;
+                        else board[i][j] = '.';
+
+                    }
+                }
+
+                return false;
+                
+             }
+        }
+        
+    }
+
+    return true;
+    
+}
+
+void fun( vector<vector<char>>&board){
+
+    int n=4;
+
+    solve(board);
+    for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+        cout << board[i][j];
+    }
+    cout << endl;
+}
+
+
+
 }
 int main()
 {
-    fast();
+    //fast();
 
     int t=1;
     //cin>>t;
 
     while(t--)
     {
+        int n=4;
+        
+      vector<vector<char>> board(n, vector<char>(n));
 
-        vector<int>v = {1,2,3};
-        int n= v.size();
-        map<int, bool>mp;
-        vector< vector<int>>ans;
-        vector<int>ds;
+        for(int i=0; i<n; i++){
+          for( int j=0; j<n; j++){
+            
+            cin>>board[i][j];
 
-        solve(n, v, ans, ds, mp );
+          }
+        }
 
-        debug(ans);
+      fun(board);
+
+      debug(board);
+
+
+
+        
+
         
     }
 

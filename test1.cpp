@@ -15,18 +15,45 @@ void fast(){
     cin.tie(nullptr);
 }
 
-void solve(int i, int n, vector<int>&v,  set<vector<int>>&ans, vector<int>&tmp){
+bool isvalid(vector<vector<char>>&board, int row, int col, char c){
 
-    if(i==n){
-        ans.insert(tmp);
-        return;
+    for(int i=0; i< board.size(); i++){
+        
+        if( board[i][col] == c) return false;
+        if( board[row][i] == c) return false;
+
+        if(board[ 3*(row/3) + i/3][3*(col/3) + i%3] == c) return false;
     }
 
-    tmp.push_back(v[i]);
-    solve(i+1, n, v, ans, tmp);
+    return true;
+}
 
-    tmp.pop_back();
-    solve(i+1, n, v, ans, tmp);
+bool solve(vector<vector<char>>&board){
+
+    for (int i = 0; i < board.size(); i++)
+    {
+        for (int j = 0; j < board[i].size(); j++)
+        {
+            if(board[i][j]=='.'){
+
+                for (char c = '1'; c <= '9'; c++)
+                {
+                    if(isvalid( board, i,j,c)){
+                        board[i][j] = c;
+
+                        if(solve(board)) return true;
+                        else board[i][j] = '.';
+                    }
+                }
+                
+                return false;
+            }
+        }
+        
+    }
+
+    return true;
+    
 }
 int main()
 {
@@ -37,25 +64,7 @@ int main()
 
     while(t--)
     {
-        vector<int>v = {4,4,4,1,4};
 
-        int n = v.size();
-
-        vector<int>tmp;
-        set<vector<int>>ans;
-        solve(0,n,v,ans,tmp);
-
-        vector<vector<int>>sol;
-
-        for(auto i : ans){
-
-            sol.push_back(i);
-        }
-
-
-    
-          debug(sol);
-        
     }
 
     return 0;

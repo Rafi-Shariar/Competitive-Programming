@@ -1,42 +1,73 @@
-
-// C++ code to demonstrate star pattern
- 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
- 
+typedef long long ll;
+typedef pair<int, int> pii;
+#ifdef LOKAL
+#include "DEBUG_TEMPLATE.h"
+#else
+#define HERE
+#define debug(args...)
+#endif
 
-void print_space(int space)
-{
-    if (space == 0)
-        return;
-    cout << " ";
-    print_space(space - 1);
+void fast() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 }
 
-void print_asterisk(int asterisk)
-{
-    if (asterisk == 0)
-        return;
-    cout << "*";
- 
-    print_asterisk(asterisk - 1);
+bool isvalid(vector<vector<char>>& board, int row, int col, char c) {
+    for (int i = 0; i < 4; i++) {
+        if (board[row][i] == c) return false;
+        if (board[i][col] == c) return false;
+    }
+    return true;
 }
 
-void pattern(int i, int n)
-{
-    if (n == 0)
-        return;
-    print_space(n - 1);
-    print_asterisk(i*2-1);
-    cout << endl;
-
-    pattern(i+1,n - 1);
+bool solve(vector<vector<char>>& board, int n) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (board[i][j] == '.') {
+                for (char c = '1'; c <= '4'; c++) {
+                    if (isvalid(board, i, j, c)) {
+                        board[i][j] = c;
+                        if (solve(board, n)) return true;
+                        board[i][j] = '.';
+                    }
+                }
+                return false;
+            }
+        }
+    }
+    return true;
 }
- 
-// driver function
-int main()
-{
-    int n = 4;
-    pattern(1, n);
+
+void fun(vector<vector<char>>& board, int n) {
+    solve(board, n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << board[i][j];
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    // fast();
+    int t = 1;
+    // cin>>t;
+
+    while (t--) {
+        int n = 4;
+
+        vector<vector<char>> board(n, vector<char>(n));
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                cin >> board[i][j];
+            }
+        }
+
+        fun(board, n);
+    }
+
     return 0;
 }
