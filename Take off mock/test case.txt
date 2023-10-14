@@ -1,0 +1,9 @@
+6
+A B C D E F
+3
+D
+F
+B
+
+
+output : A C E D F B
