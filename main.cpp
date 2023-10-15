@@ -19,15 +19,11 @@ int main()
     fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
     while (t--)
     {
-        int n; cin>>n;
-        vector<int>v(n);
-        forin(v,n);
-        for(auto i : v) cout<<i<<" ";
-        cout<<endl;        
+        cout<<"hi"<<endl;
     }
     
 
