@@ -21,9 +21,27 @@ int main()
     int t=1;
     cin>>t;
 
-    while (t--)
+    for(int x = 1; x<=t; x++)
     {
-        cout<<"hi"<<endl;
+        int n; cin>>n;
+        vector<int>v(n);
+        forin(v,n);
+
+        int c = 0;
+        int mx = 2;
+
+        for (int i = 1; i < n; i++)
+        {
+            if(v[i] > mx && (v[i]>=3 && v[i]<=5)){
+                c++;
+                mx = v[i];
+            }
+        }
+
+        printf("Case %d: %d\n",x,c);
+
+
+        
     }
     
 
