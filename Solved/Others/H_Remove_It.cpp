@@ -19,24 +19,27 @@ int main()
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-      unsigned int n,k; cin>>n>>k;
+        int n,x; cin>>n>>x;
 
-      for (int i = 0; i < k; i++)
-      {
-         if( (n>>i) & 1) n = n & (~(1 << i));
-      }
+        vector<int>v;
 
-      cout<<n<<endl;
-      
+        for (int i = 0; i < n; i++)
+        {
+            int a; cin>>a;
+            if(a!=x) v.push_back(a);
+        }
+
+        for(auto i : v) cout<<i<<" ";
+        cout<<endl;
 
 
-   
-      
-     
+        
+
+        
     }
     
 

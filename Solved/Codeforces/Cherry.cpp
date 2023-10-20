@@ -23,20 +23,19 @@ int main()
 
     while (t--)
     {
-      unsigned int n,k; cin>>n>>k;
+        int n; cin>>n;
+        vector<ll>v(n);
+        forin(v,n);
 
-      for (int i = 0; i < k; i++)
-      {
-         if( (n>>i) & 1) n = n & (~(1 << i));
-      }
+        ll ans = 0;
 
-      cout<<n<<endl;
-      
+        for (int i = 0; i < n-1; i++)
+        {
+           ans = max(ans, v[i]*v[i+1]);
+        }
 
-
-   
-      
-     
+        cout<<ans<<endl;
+        
     }
     
 

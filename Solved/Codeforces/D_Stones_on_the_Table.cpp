@@ -19,24 +19,24 @@ int main()
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-      unsigned int n,k; cin>>n>>k;
+        int n; cin>>n;
+        string s; cin>>s;
 
-      for (int i = 0; i < k; i++)
-      {
-         if( (n>>i) & 1) n = n & (~(1 << i));
-      }
+        int c = 0;
 
-      cout<<n<<endl;
-      
+        for (int i = 1; i < s.size(); ++i)
+        {
+            if(s[i-1] == s[i]){
+                c++;
+                s[i] = s[i-1];
+            }
+        }
 
-
-   
-      
-     
+        cout<<c<<endl;
     }
     
 

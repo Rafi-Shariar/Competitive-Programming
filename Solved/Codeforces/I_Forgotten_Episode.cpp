@@ -19,24 +19,32 @@ int main()
     fast
 
     int t=1;
-    cin>>t;
+   // cin>>t;
 
     while (t--)
     {
-      unsigned int n,k; cin>>n>>k;
+        int n; cin>>n;
+        
+        int freq[n+1]={0};
 
-      for (int i = 0; i < k; i++)
-      {
-         if( (n>>i) & 1) n = n & (~(1 << i));
-      }
+        for (int i = 0; i < n-1; i++)
+        {
+            int a; cin>>a;
 
-      cout<<n<<endl;
-      
+            freq[a]++;
+        }
 
-
-   
-      
-     
+        for (int i = 1; i <= n; i++)
+        {
+            if(freq[i]==0){
+                cout<<i<<endl;
+                return 0;
+            }
+        }
+        
+        
+        
+        
     }
     
 

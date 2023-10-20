@@ -2,6 +2,7 @@
 using namespace std;
 int main(){
 
-    int a; cin>>a;
-    cout<<"HI alasj"<<" "<<a<<endl;
+    int n; cin>>n;
+
+    
 }
