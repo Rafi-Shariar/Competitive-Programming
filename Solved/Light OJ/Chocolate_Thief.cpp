@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://lightoj.com/problem/chocolate-thief
 int main()
 {
     //fast
@@ -24,8 +24,9 @@ int main()
     for (int tt = 1; tt <=t; tt++)
     {
         int n; cin>>n;
-        map<string,int>mp;
-        set<int>st;
+        map<int,string>mp;
+
+        int minn = INT16_MAX, mx = INT_MIN;
 
         for (int i = 0; i < n; i++)
         {
@@ -33,33 +34,24 @@ int main()
             cin >> s >> a >> b >> c;
             int volume = a * b * c;
 
-            mp[s] = volume;
-            st.insert(volume);
-
+            mp[volume] = s;
+            minn = min(minn,volume);
+            mx = max(mx, volume);
+         
         }
 
         printf("Case %d: ",tt);
 
-        if(st.size() > 1){
-
-            int los = *st.begin();
-            int theif = 0;
-
-            for(auto i : st) theif = i;
-
-            string l,th;
-
-            for(auto i : mp){
-
-                debug(i);
-                if(i.second == los) l = i.first;
-                if(i.second == theif) th =  i.first;
-            }
-
-           cout<<th<<" took chocolate from "<<l<<endl;
+        if(mp.size()==1) cout<< "no thief" <<endl;
+        else
+        {
+            cout<<mp[mx]<<" took chocolate from "<<mp[minn]<<endl;
+           
             
         }
-        else cout<< "no thief" <<endl;
+        
+
+     
         
     }
     

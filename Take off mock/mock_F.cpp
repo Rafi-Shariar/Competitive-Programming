@@ -24,9 +24,6 @@ int main()
 
         for (int i = n-1; i >= 0; i--) st.push( v[i] );
      
-        ps(st);
-        
-
         int queries; 
         cin>>queries;
 
@@ -47,7 +44,6 @@ int main()
             for(int i=v.size()-1; i>=0; i--) st.push( v[i] );
             st.push(the_book);
 
-           // ps(st);
             
         }
         
