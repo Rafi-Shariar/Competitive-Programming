@@ -23,6 +23,9 @@ int main()
         for (int i = 0; i < n; i++) cin>>v[i];
 
         for (int i = n-1; i >= 0; i--) st.push( v[i] );
+
+        cout<<"current stack --> "; ps(st);
+        cout<<endl;
      
         int queries; 
         cin>>queries;
@@ -43,6 +46,12 @@ int main()
 
             for(int i=v.size()-1; i>=0; i--) st.push( v[i] );
             st.push(the_book);
+
+
+              cout<<"current stack --> "; ps(st);
+              cout<<endl;
+     
+
 
             
         }
