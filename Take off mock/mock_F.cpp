@@ -12,51 +12,42 @@ void ps(stack<char>st){
     return;
     
 }
+
 int main()
 {
-    
+        int n; 
+        cin>>n;
 
-        int n; cin>>n;
         stack<char>st;
         vector<char>v(n);
 
-        for (int i = 0; i < n; i++) cin>>v[i];
+        for (int i = 0; i < n; i++) cin>>v[i]; // taking input in an array
 
-        for (int i = n-1; i >= 0; i--) st.push( v[i] );
+        for (int i = n-1; i >= 0; i--) st.push( v[i] ); // inserting in the stack
 
-        cout<<"current stack --> "; ps(st);
-        cout<<endl;
-     
         int queries; 
         cin>>queries;
 
         while (queries--)
         {
             char c; cin>>c;
-            vector<char>v;
+            vector<char>temp;
 
-            while (st.top() != c)
+            while (st.top() != c) // iterating till we find the book
             {
-                v.push_back( st.top());
+                temp.push_back( st.top()); // inserting popped characters in a temporary array 
                 st.pop();
             }
 
-            char the_book  = st.top();
-            st.pop();
+            char the_book  = st.top(); // storing the book in a variable
+            st.pop(); // removing the book from the stack
 
-            for(int i=v.size()-1; i>=0; i--) st.push( v[i] );
-            st.push(the_book);
+            for( int i = temp.size()-1; i >= 0; i-- ) st.push( temp[i] ); // returning popped books in the stacks
+            st.push(the_book); // placing the returened book at the top
 
-
-              cout<<"current stack --> "; ps(st);
-              cout<<endl;
-     
-
-
-            
         }
         
-        ps(st);
+        ps(st); // printing the stack
     
 
     return 0;

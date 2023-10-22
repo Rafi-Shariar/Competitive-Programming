@@ -1,4 +1,9 @@
-* printing all sub sequence of ans array 
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>v;
+int n,l,r;
+
+// printing all sub sequence of ans array 
 
 void solve(int ind, vector<int>&ans, vector<int>&v, int n){
 
@@ -19,9 +24,10 @@ void solve(int ind, vector<int>&ans, vector<int>&v, int n){
 
 }
 
-------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
 
-******* print sequence of target sum
+// print sequence of target sum
+
 void solve(int i, vector<int>&v, int sum, int target, vector<int>&ans, int n){
 
     if(i==n){
@@ -45,8 +51,8 @@ void solve(int i, vector<int>&v, int sum, int target, vector<int>&ans, int n){
     solve(i+1, v, sum, target, ans, n);
 }
 
---------------------------------------------------------------------------------------------------------------------------------
-*** Combination sum - I
+//--------------------------------------------------------------------------------------------------------------------------------
+//Combination sum - I
 
 void solve(int ind, vector<int>&v, int target,  vector< vector<int> >ans, vector<int>tmp){
 
@@ -67,10 +73,10 @@ void solve(int ind, vector<int>&v, int target,  vector< vector<int> >ans, vector
 
 }
 
---------------------------------------------------------------------------------------------------------------------------------
-** Combination sum - II  ( find unique combinations == target and print them in lexicographically sorted order
-We have to sort the array first 
-)
+//--------------------------------------------------------------------------------------------------------------------------------
+/* Combination sum - II  ( find unique combinations == target and print them in lexicographically sorted order
+We have to sort the array first ) */
+
 
  void findcombinations(int idx, int target, vector<int>&v, vector< vector<int>>&ans, vector<int>&ds){
 
@@ -93,9 +99,9 @@ We have to sort the array first
 
 
 
- -----------------------------------------------------------------------------------
+ //-----------------------------------------------------------------------------------
 
- ** generating all permutations
+ //generating all permutations
 
  void solve(int n, vector<int>&v, vector< vector<int>>&ans, vector<int>&ds, map<int, bool>&mp){
 
@@ -122,8 +128,8 @@ We have to sort the array first
 
 
 
-----------------------------------------------------------------------------------------------------
-** sudoku solver
+//----------------------------------------------------------------------------------------------------
+//sudoku solver
 
 bool isvalid(vector<vector<char>>&board, int row, int col, char c){
 
