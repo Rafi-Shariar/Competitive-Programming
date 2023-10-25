@@ -13,41 +13,37 @@ using namespace std;
 #endif
 
 
-
-int maxx = INT_MIN;
-
-void fun(int n){
-
-    int c = 0;
-
-    while (n!=1)
-    {
-        if( n % 2 == 1) n = (3*n) + 1;
-        else n/=2;
-
-        c++;
-    }
-
-    maxx = max(maxx, c);
-
-
-    
-}
+//https://www.codechef.com/START105D/problems/CHEAT
 int main()
 {
     fast
 
+      vector<int>v(1010,0);
+
+      v[2] = 1;
+
+      for(int i = 2; i<1010; i+=7) v[i] = 1;
+      
+
     int t=1;
-    //cin>>t;
+    cin>>t;
+  
 
     while (t--)
     {
-        for (int i = 201; i <=210; i++)
+        int n; cin >> n;
+
+        int c = 0;
+
+        for (int i = 1; i <= n; i++)
         {
-            fun(i);
+            if( v[i]) c++;
         }
 
-        cout<<maxx<<endl;
+        cout << c <<endl;
+        
+       
+
         
         
     }

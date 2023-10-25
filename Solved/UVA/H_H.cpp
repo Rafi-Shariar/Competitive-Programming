@@ -14,44 +14,33 @@ using namespace std;
 
 
 
-int maxx = INT_MIN;
-
-void fun(int n){
-
-    int c = 0;
-
-    while (n!=1)
-    {
-        if( n % 2 == 1) n = (3*n) + 1;
-        else n/=2;
-
-        c++;
-    }
-
-    maxx = max(maxx, c);
-
-
-    
-}
 int main()
 {
-    fast
 
-    int t=1;
-    //cin>>t;
+    ll a , b , c ;
+    while(cin >> a >> b >> c){
 
-    while (t--)
-    {
-        for (int i = 201; i <=210; i++)
-        {
-            fun(i);
-        }
+        if( a == 0 && b == 0 && c == 0) break;
 
-        cout<<maxx<<endl;
-        
-        
+
+     a = a * a;
+     b = b * b;
+     c = c * c; 
+
+     if( ( a + b) == c ) cout << "right" <<endl;
+     else if( ( a + c ) == b ) cout << "right" << endl;
+     else if ( ( b + c ) == a) cout << "right" << endl;
+     else cout << "wrong" <<endl;
+
     }
     
+    
+
+
+
+
+    
+
 
     return 0;
 }

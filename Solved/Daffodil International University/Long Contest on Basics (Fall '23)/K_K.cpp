@@ -13,41 +13,31 @@ using namespace std;
 #endif
 
 
-
-int maxx = INT_MIN;
-
-void fun(int n){
-
-    int c = 0;
-
-    while (n!=1)
-    {
-        if( n % 2 == 1) n = (3*n) + 1;
-        else n/=2;
-
-        c++;
-    }
-
-    maxx = max(maxx, c);
-
-
-    
-}
+//https://vjudge.net/contest/589783#problem/K
 int main()
 {
-    fast
+    //fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
-    while (t--)
+    for( int tt=1; tt<=t; tt++)
     {
-        for (int i = 201; i <=210; i++)
-        {
-            fun(i);
-        }
+        int x1, y1 , x2 , y2;
+        cin >> x1 >> y1 >> x2 >> y2;
 
-        cout<<maxx<<endl;
+        int m; cin>>m;
+
+        printf("Case %d:\n",tt);
+
+        while (m--)
+        {
+            int a,b;
+            cin >> a >> b;
+
+            if( x1 <= a && a <=x2 && y1 <= b && b <= y2) cout << "Yes" <<endl;
+            else cout << "No" <<endl;
+        }
         
         
     }

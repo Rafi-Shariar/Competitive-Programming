@@ -13,44 +13,38 @@ using namespace std;
 #endif
 
 
-
-int maxx = INT_MIN;
-
-void fun(int n){
-
-    int c = 0;
-
-    while (n!=1)
-    {
-        if( n % 2 == 1) n = (3*n) + 1;
-        else n/=2;
-
-        c++;
-    }
-
-    maxx = max(maxx, c);
-
-
-    
-}
+//https://vjudge.net/contest/589783#problem/O
 int main()
 {
-    fast
+   ll n;
 
-    int t=1;
-    //cin>>t;
+   while ( cin >> n)
+   {
 
-    while (t--)
-    {
-        for (int i = 201; i <=210; i++)
-        {
-            fun(i);
-        }
+    if( n < 0) break;
 
-        cout<<maxx<<endl;
-        
-        
+    if( n==0){
+        cout << 0 <<endl;
+        continue;
     }
+       
+
+   vector<int>v;
+
+   while (n)
+   {
+     v.push_back( n%3);
+     n/=3;
+   }
+
+   reverse(v.begin(), v.end());
+
+   for(auto i : v) cout << i;
+   cout <<endl;
+   
+   }
+   
+
     
 
     return 0;

@@ -20,45 +20,40 @@ int main()
 
     int t=1;
     cin>>t;
-    //cin.ignore();
+    cin.ignore();
 
     while (t--)
     {
         string s; cin >> s;
 
-        stack<char>st;
+        if( s.size() == 0) cout << "Yes" <<endl;
+        else
+        {
+            stack<char>st;
 
             bool ok = true;
 
             for (int i = 0; i < s.size(); i++)
             {
                 if( s[i] == '(' || s[i] == '[') st.push(s[i]);
-                else if ( s[i] == ')'){
+                else
+                {
 
-                    if( st.empty() || st.top() == '['){
+                    if (st.empty() || (s[i] == ')' && st.top() != '(') || (s[i] == ']' && st.top() != '['))
+                    {
                         ok = false;
                         break;
                     }
-
                     st.pop();
-                }
-                else if( s[i] == ']'){
-
-                    if( st.empty() || st.top() == '('){
-                        ok = false;
-                        break;
-                    }
-
-                    st.pop();
-                }
-                           
+                    
+                }                
   
             }
 
-            if( ok && st.empty()) cout << "Yes" << endl;
-            else cout << "No" << endl;
-
-        
+            if( ok && st.empty()) cout << "Yes" <<endl;
+            else cout << "No" <<endl;
+            
+        }
         
 
         

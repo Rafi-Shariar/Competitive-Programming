@@ -13,26 +13,7 @@ using namespace std;
 #endif
 
 
-
-int maxx = INT_MIN;
-
-void fun(int n){
-
-    int c = 0;
-
-    while (n!=1)
-    {
-        if( n % 2 == 1) n = (3*n) + 1;
-        else n/=2;
-
-        c++;
-    }
-
-    maxx = max(maxx, c);
-
-
-    
-}
+//https://vjudge.net/contest/589783#problem/Q
 int main()
 {
     fast
@@ -42,12 +23,22 @@ int main()
 
     while (t--)
     {
-        for (int i = 201; i <=210; i++)
-        {
-            fun(i);
-        }
+        int n; cin>>n;
 
-        cout<<maxx<<endl;
+        if( n % 2 == 0){
+
+            cout << n/2 <<endl;
+            for(int i=1; i<= (n/2); i++) cout << 2 <<" ";
+            cout << endl;
+        }
+        else
+        {
+             cout << n/2 <<endl;
+            for(int i=1; i<= (n/2) - 1; i++) cout << 2 <<" ";
+
+            cout << 3 <<endl;
+            
+        }
         
         
     }

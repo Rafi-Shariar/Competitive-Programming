@@ -12,11 +12,8 @@ using namespace std;
 #define debug(args...)
 #endif
 
-
-
-int maxx = INT_MIN;
-
-void fun(int n){
+//https://vjudge.net/contest/589783#problem/L
+int fun(int n){
 
     int c = 0;
 
@@ -28,27 +25,24 @@ void fun(int n){
         c++;
     }
 
-    maxx = max(maxx, c);
+    return c;
 
-
-    
 }
 int main()
 {
-    fast
+    int a,b;
 
-    int t=1;
-    //cin>>t;
-
-    while (t--)
+    while (cin >> a >> b)
     {
-        for (int i = 201; i <=210; i++)
-        {
-            fun(i);
-        }
+        int x = a, y = b;
 
-        cout<<maxx<<endl;
-        
+        if( x > y) swap (x , y);
+
+        int maxx = 0;
+
+        for (int i = x; i <= y; i++) maxx = max (maxx, fun(i)+1);
+
+        cout << a <<" " << b << " " << maxx <<endl;
         
     }
     
