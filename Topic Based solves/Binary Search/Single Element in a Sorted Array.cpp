@@ -1,5 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+//https://www.codingninjas.com/studio/problems/unique-element-in-sorted-array_1112654?utm_source=youtube&utm_medium=affiliate&utm_campaign=codestudio_Striver_BinarySeries&leftPanelTab=0
 int singleNonDuplicate(vector<int>& v)
 {
 	int n = v.size();
@@ -15,12 +17,7 @@ int singleNonDuplicate(vector<int>& v)
 
 		int mid = low + ( high - low ) /2;
 
-          cout << mid << endl;
-
-		if( v[mid] != v[mid+1] && v[mid] != v[mid-1]){
-          
-            return v[mid];
-        }
+		if( v[mid] != v[mid-1] && v[mid] != v[mid+1]) return v[mid];
 
 		if( (mid % 2 == 1 && v[mid] == v[mid-1] ) || mid % 2==0 && v[mid] == v[mid+1] ) low = mid + 1;
 		else high = mid - 1;
@@ -29,13 +26,4 @@ int singleNonDuplicate(vector<int>& v)
 	return -1;
 
 
-}
-
-int main(){
-
-    int n; cin >> n;
-    vector<int>v(n);
-    for( int i=0; i<n; i++ ) cin >> v[i];
-
-    cout << singleNonDuplicate(v) << endl;
 }
