@@ -1,60 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll         long long int
-#define sort(x)    sort(x.begin(),x.end())
-#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
-#define endl       "\n"
-#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
 
+void ps(stack<char>st){
 
+    while (st.size())
+    {
+        cout<<st.top()<<" ";
+        st.pop();
+    }
+
+    return;
+    
+}
 
 int main()
 {
-    int n; cin>>n;
-    deque<char>dq;
+        int n; 
+        cin>>n;
 
-    for (int i = 0; i < n; i++)
-    {
-        char x; cin>>x;
-        dq.push_back(x);
-    }
+        stack<char>st;
+        vector<char>v(n);
 
-    int queries; cin>>queries;
-    int operations = 0;
+        for (int i = 0; i < n; i++) cin>>v[i]; // taking input in an array
 
-    while (queries--)
-    {
-        char c; cin>>c;
-        vector<char>v;
+        for (int i = n-1; i >= 0; i--) st.push( v[i] ); // inserting in the stack
 
-        while (dq.front() != c) // till i see the book
+        int queries; 
+        cin>>queries;
+
+        while (queries--)
         {
-            v.push_back(dq.front());
-            dq.pop_front();
-            operations++;
+            char c; cin>>c;
+            vector<char>temp;
+
+            while (st.top() != c) // iterating till we find the book
+            {
+                temp.push_back( st.top()); // inserting popped characters in a temporary array 
+                st.pop();
+            }
+
+            char the_book  = st.top(); // storing the book in a variable
+            st.pop(); // removing the book from the stack
+
+            for( int i = temp.size()-1; i >= 0; i-- ) st.push( temp[i] ); // returning popped books in the stacks
+            st.push(the_book); // placing the returened book at the top
+
         }
-
-        //taking the book out
-        char now = dq.front();
-        dq.pop_front();
-
-        for(int i = v.size()-1; i>=0; i--) dq.push_front( v[i] );
-        dq.push_back(now); // adding removed book
-
-    }
-
-    cout<<operations<<endl;
-    for(auto i : dq) cout<<i<<" ";
-    cout<<endl;
-    
-
-    
+        
+        ps(st); // printing the stack
     
 
     return 0;

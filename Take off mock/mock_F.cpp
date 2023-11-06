@@ -1,54 +1,72 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
 
-void ps(stack<char>st){
+void print_stack(char stack[], int size) {
 
-    while (st.size())
-    {
-        cout<<st.top()<<" ";
-        st.pop();
+    for (int i = size - 1; i >= 0; i--) {
+
+        printf("%c ", stack[i]);
     }
 
-    return;
-    
+    printf("\n");
 }
 
-int main()
-{
-        int n; 
-        cin>>n;
+int main() {
+    int n;
+    scanf(" %d ", &n);
 
-        stack<char>st;
-        vector<char>v(n);
+    char stack[100001];  
+    char v[100001];
 
-        for (int i = 0; i < n; i++) cin>>v[i]; // taking input in an array
+    for (int i = 0; i < n; i++) {
 
-        for (int i = n-1; i >= 0; i--) st.push( v[i] ); // inserting in the stack
+        scanf(" %c ", &v[i]); // Taking input in an array
+    }
 
-        int queries; 
-        cin>>queries;
 
-        while (queries--)
-        {
-            char c; cin>>c;
-            vector<char>temp;
+    int stack_top = -1;
 
-            while (st.top() != c) // iterating till we find the book
-            {
-                temp.push_back( st.top()); // inserting popped characters in a temporary array 
-                st.pop();
-            }
+    for (int i = n - 1; i >= 0; i--) {
 
-            char the_book  = st.top(); // storing the book in a variable
-            st.pop(); // removing the book from the stack
+        stack_top++;
+        stack[stack_top] = v[i]; // Inserting in the stack
 
-            for( int i = temp.size()-1; i >= 0; i-- ) st.push( temp[i] ); // returning popped books in the stacks
-            st.push(the_book); // placing the returened book at the top
+    }
+
+
+    int queries;
+    scanf(" %d ", &queries);
+
+    while (queries--) {
+
+        char ch;
+        scanf(" %c ", &ch);
+
+        char temp[100001];
+        int temp_top = -1;
+
+        while (stack[stack_top] != ch) {
+
+            temp_top++;
+            temp[temp_top] = stack[stack_top]; // Inserting popped characters in a temporary array
+            stack_top--;
+        }
+
+        char the_book = stack[stack_top]; // Storing the desired book in a variable
+        stack_top--; // Removing the book from the stack
+
+        for (int i = temp_top; i >= 0; i--) {
+
+            stack_top++;
+            stack[stack_top] = temp[i]; // Returning popped books in the stack
 
         }
-        
-        ps(st); // printing the stack
-    
+
+        stack_top++;
+        stack[stack_top] = the_book; // Placing the returned book at the top
+
+    }
+
+    print_stack(stack, stack_top + 1); 
 
     return 0;
 }
