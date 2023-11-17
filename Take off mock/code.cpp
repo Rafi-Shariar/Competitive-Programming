@@ -45,8 +45,12 @@ int main()
             for( int i = temp.size()-1; i >= 0; i-- ) st.push( temp[i] ); // returning popped books in the stacks
             st.push(the_book); // placing the returened book at the top
 
+             ps(st);
+             cout << endl;
+
         }
         
+        cout << endl <<endl;
         ps(st); // printing the stack
     
 

@@ -11,15 +11,20 @@ using namespace std;
 #define HERE
 #define debug(args...)
 #endif
-const int X = 100;
-int col,row;
+
+
+const int X = 1000;
+int col,row,q;
 char arr[X][X];
+char temp[X][X];
 
 void  Khida_lagse(int i, int j,ll &ans){
 
     if (i < 0 || i >= row || j < 0 || j >= col || arr[i][j] == '#') return;
 
-    ans++ ;
+    cout << arr[i][j] << endl;
+
+    if( arr[i][j] == 'C') ans++;
     arr[i][j] = '#';
 
     Khida_lagse(i+1,j,ans);
@@ -30,35 +35,41 @@ void  Khida_lagse(int i, int j,ll &ans){
 }
 int main()
 {
-    //fast
-
+    fast
+    
     int t=1;
     cin>>t;
 
-    for(int tt=1; tt <= t; tt++)
+    while (t--)
     {
        
-        cin >> col >> row;
-
-        int x,y;
+        cin >> row >>  col>> q;
 
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < col; j++)
             {
                 cin >> arr[i][j];
-
-                if(arr[i][j] == '@'){ x = i; y = j;}
-            } 
+            }
+            
         }
 
-        ll ans = 0;
+        while (q--)
+        {
+            int x,y;
+            cin >> x >> y;
 
-        Khida_lagse(x,y,ans);
+            ll ans = 0;
 
-        printf("Case %d: ",tt);
 
-        cout << ans << endl;
+            Khida_lagse(x,y,ans);
+
+            cout << ans << endl;
+
+        }
+        
+        
+
         
     }
     

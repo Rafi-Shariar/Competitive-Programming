@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define ll  ong long int
+#define ll  long long int
 
 // custom comperator
 bool comp( pair<int,int>x, pair<int,int>y){
@@ -16,6 +16,23 @@ ll stringToInt(string& s)
         ans = ans * 10 + (s[i] - '0');
     return ans;
 } 
+
+// intege to string converter
+
+string intToString(ll num) {
+    string result = "";
+    if (num == 0) {
+        result = "0";
+    } 
+    else {
+        while (num > 0) {
+            char digit = '0' + num % 10;
+            result = digit + result;
+            num /= 10;
+        }
+    }
+    return result;
+}
 
 // Binary to decimal converter
 int binaryToDecimal(int n) 
