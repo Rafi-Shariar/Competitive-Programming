@@ -1,67 +1,145 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define ll         long long int
-#define sort(x)    sort(x.begin(),x.end())
-#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
-#define endl       "\n"
-#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
-const int X = 100;
-int col,row;
-char arr[X][X];
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
-void  Khida_lagse(int i, int j,ll &ans){
-
-    if (i < 0 || i >= row || j < 0 || j >= col || arr[i][j] == '#') return;
-
-    ans++ ;
-    arr[i][j] = '#';
-
-    Khida_lagse(i+1,j,ans);
-    Khida_lagse(i-1,j,ans);
-    Khida_lagse(i,j+1,ans);
-    Khida_lagse(i,j-1,ans);
-
-}
-int main()
+struct Node
 {
-    //fast
+    long long int ID;
+    char Title[100];
+    char author[100];
+    char genre[100];
+    struct Node* next;
+};
 
-    int t=1;
-    cin>>t;
+struct Library
+{
+    int sz;
+    struct Node* head;
+};
 
-    for(int tt=1; tt <= t; tt++)
+struct Node* CreateNewNode(long long int id, char title[], char Author[], char Genre[])
+{
+    struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+    newnode->ID = id;
+    strcpy(newnode->Title, title);
+    strcpy(newnode->author, Author);
+    strcpy(newnode->genre, Genre);
+    newnode->next = NULL;
+
+    return newnode;
+}
+
+void add_book(struct Library* list, long long int id, char title[], char Author[], char Genre[])
+{
+    struct Node* newnode = CreateNewNode(id, title, Author, Genre);
+
+    if (list->head == NULL)
     {
-       
-        cin >> col >> row;
+        list->head = newnode;
+        list->sz++;
+        return;
+    }
 
-        int x,y;
+    struct Node* current = list->head;
+    while (current->next != NULL)
+    {
+        current = current->next;
+    }
 
-        for (int i = 0; i < row; i++)
+    current->next = newnode;
+    list->sz++;
+}
+
+void remove_book(struct Library* list, long long int id)
+{
+    struct Node* a = list->head;
+
+    if (a == NULL)
+    {
+        printf("Book not found\n");
+        return;
+    }
+
+    if (a->ID == id)
+    {
+        list->head = a->next;
+        free(a);
+        list->sz--;
+        return;
+    }
+
+    while (a != NULL && a->next != NULL)
+    {
+        if (a->next->ID == id)
         {
-            for (int j = 0; j < col; j++)
-            {
-                cin >> arr[i][j];
+            struct Node* b = a->next;
+            a->next = b->next;
+            free(b);
+            list->sz--;
+            return;
+        }
+        a = a->next;
+    }
 
-                if(arr[i][j] == '@'){ x = i; y = j;}
-            } 
+    printf("Book not found\n");
+}
+
+void display(struct Library* list)
+{
+    struct Node* a = list->head;
+
+    printf("Book List : \n");
+
+    while (a != NULL)
+    {
+        printf("Title : %s , Author : %s, Genre : %s, ID : %lld \n", a->Title, a->author, a->genre, a->ID);
+        a = a->next;
+    }
+
+    printf("\n");
+}
+
+void find(struct Library* list, long long int id, char title[])
+{
+    struct Node* a = list->head;
+
+    while (a != NULL)
+    {
+        if (a->ID == id || strcmp(a->Title, title) == 0)
+        {
+            printf("Book found \n");
+            printf("Title : %s , Author : %s, Genre : %s, ID : %lld \n", a->Title, a->author, a->genre, a->ID);
+            return;
         }
 
-        ll ans = 0;
-
-        Khida_lagse(x,y,ans);
-
-        printf("Case %d: ",tt);
-
-        cout << ans << endl;
-        
+        a = a->next;
     }
-    
+
+    printf("Book is not available !\n");
+}
+
+int main()
+{
+    struct Library l;
+    l.head = NULL;
+    l.sz = 0;
+
+    add_book(&l, 12341234, "Water", "Rafi", "Story");
+    add_book(&l, 1233456, "Air", "Koci", "Poetry");
+    add_book(&l, 1235234, "Land", "Rifat", "Story");
+    add_book(&l, 1233454, "CSE", "Esha", "Poetry");
+    add_book(&l, 1232344, "what!", "Piklu", "magazine");
+    add_book(&l, 23353434, "power", "lamia", "Story");
+
+    display(&l);
+
+    remove_book(&l, 1233454);
+
+    printf("after removing 1233454 \n");
+
+    display(&l);
+
+    find(&l, 1232344, "Piklu");
 
     return 0;
 }
