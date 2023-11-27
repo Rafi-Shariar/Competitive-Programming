@@ -1,1 +1,0 @@
-{"name":"Local: code","url":"f:\\Coding\\Competitive Programming\\Take off mock\\code.cpp","tests":[{"id":1699449077973,"input":"6\nA B C D E F\n3\nD\nF\nB","output":"B F D A C E"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Coding\\Competitive Programming\\Take off mock\\code.cpp","group":"local","local":true}
