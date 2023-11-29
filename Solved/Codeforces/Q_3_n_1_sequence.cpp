@@ -12,32 +12,27 @@ using namespace std;
 #define debug(args...)
 #endif
 
+int c  = 0;
+int hey(int n){
 
+    if( n == 1) return c+1;
 
+    if( n % 2 == 0){
+        c++;
+        hey(n/2);
+    }
+    else{
+        c++;
+        hey( 3*n + 1);
+    }
+}
 int main()
 {
     fast
 
-    int t=1;
-    cin>>t;
+  int n; cin >> n;
 
-    while (t--)
-    {
-        ll n; cin >> n;
-
-        ll cur = 0;
-
-        for(int i=0; i<32; i++){
-
-            cur += ( (n & 1 )== 1);
-
-            debug(cur);
-
-        }
-
-        cout << cur << endl;
-    }
-    
+  cout << hey (n) << endl;
 
     return 0;
 }

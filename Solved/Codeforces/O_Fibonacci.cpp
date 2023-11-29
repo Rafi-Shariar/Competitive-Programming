@@ -13,30 +13,20 @@ using namespace std;
 #endif
 
 
+int fib(int n){
 
+    if( n <= 1) return 0;
+    if( n == 2) return 1;
+
+    return fib(n-1) + fib(n-2);
+}
 int main()
 {
     fast
 
-    int t=1;
-    cin>>t;
+   int n; cin >> n;
 
-    while (t--)
-    {
-        ll n; cin >> n;
-
-        ll cur = 0;
-
-        for(int i=0; i<32; i++){
-
-            cur += ( (n & 1 )== 1);
-
-            debug(cur);
-
-        }
-
-        cout << cur << endl;
-    }
+   cout << fib (n) << endl;
     
 
     return 0;
