@@ -81,6 +81,16 @@ public:
             prv->Left = newnode;
         }
     }
+
+
+  void inorder_travarsal( node*a){
+
+        if( a == NULL) return;
+
+        inorder_travarsal( a->Left);
+        cout << a->value << " ";
+        inorder_travarsal( a->Right);
+    }
 };
 
 int main() {
@@ -93,6 +103,8 @@ int main() {
     b.Insert(8);
 
     b.BFS();
+
+    b.inorder_travarsal(b.root);
 
     return 0;
 }
