@@ -12,7 +12,6 @@ struct Node
     struct Node *next;
 };
 
-
 struct Library
 {
     int sz;
@@ -53,7 +52,7 @@ void add_book(struct Library *list, long long int id, char title[], char Author[
         return;
     }
 
-
+ // lamia chutiya :)
     struct Node *current = list->head;
     while (current->next != NULL)
     {
@@ -86,7 +85,6 @@ void remove_book(struct Library *list, long long int id)
         return;
     }
 
-
     while (a != NULL && a->next != NULL)
     {
         if (a->next->ID == id)
@@ -99,7 +97,6 @@ void remove_book(struct Library *list, long long int id)
         }
         a = a->next;
     }
-
 
     printf("Book not found\n");
 }
@@ -150,7 +147,6 @@ void find(struct Library *list, long long int id, char title[])
 void push_checkout_stack(struct CheckoutStack *stack, struct Node *book)
 {
     struct Node *newNode = CreateNewNode(book->ID, book->Title, book->author, book->genre);
-
 
     newNode->next = stack->top;
     stack->top = newNode;
@@ -218,9 +214,6 @@ int main()
 
 
 
-
-
-
     push_checkout_stack(&checkout_stack, l.head);
     push_checkout_stack(&checkout_stack,l.head->next->next);
 
@@ -228,16 +221,6 @@ int main()
     printf("after some one borrowed 1st and the 3rd book\n\n");
     display_checkout_stack(&checkout_stack);
 
-
-
-
-
-
-
-
-
-
-   
 
 
     return 0;
