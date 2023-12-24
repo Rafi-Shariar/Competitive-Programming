@@ -12,26 +12,23 @@ using namespace std;
 #define debug(args...)
 #endif
 
+//https://vjudge.net/contest/600885#problem/W
 
-//https://vjudge.net/contest/600885#problem/J
 int main()
 {
     fast
 
-    map<ll,int>mp;
+    int n; cin >> n;
+    map<string,int>mp;
 
-    ll a;
-    vector<int>v;
-
-    while ( cin >> a )
+    while (n--)
     {
-      if( mp[a] == 0) v.push_back(a);
-      mp[a]++;
-    }
+        string s; cin >> s;
 
-    for (int i = 0; i < v.size(); i++)
-    {
-       cout << v[i] << " " << mp[ v[i]] << endl;
+        if(mp[s] == 0) cout << "NO" << endl;
+        else  cout << "YES" << endl;
+
+        mp[s]++;
     }
     
     

@@ -13,38 +13,36 @@ using namespace std;
 #endif
 
 
-
+//https://vjudge.net/contest/600885#problem/D
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
         int n; cin >> n;
-        vector<int> v(n);
-        forin(v,n);
-
-        for (int i = 0; i < n; i++)
+        set<int>st;
+        while (n--)
         {
-            for (int j = i; j < n; j++)
-            {
-                int mx = INT_MIN;
+            int a,b;
+            cin >> a >> b;
 
-                for (int k = i; k <= j; k++)
-                {
-                    mx = max(mx, v[k]);
-                }
+            if(a==1) st.insert(b);
 
-                cout << mx << " ";
-                
+            if( a==2) st.erase(b);
+
+            if( a==3){
+
+                if( st.find(b) != st.end()) cout << "Yes" << endl;
+                else cout << "No" << endl;
             }
-            
-        }
 
-        cout << endl;
+
+        }
+        
         
     }
     

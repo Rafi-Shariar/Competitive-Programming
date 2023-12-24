@@ -11,6 +11,11 @@
         "unordered_set": "cpp",
         "vector": "cpp",
         "valarray": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "forward_list": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp",
+        "map": "cpp"
     }
 }

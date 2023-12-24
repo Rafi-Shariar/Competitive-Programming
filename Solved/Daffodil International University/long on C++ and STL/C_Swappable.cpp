@@ -13,27 +13,38 @@ using namespace std;
 #endif
 
 
-//https://vjudge.net/contest/600885#problem/J
+//https://vjudge.net/contest/600885#problem/C
 int main()
 {
     fast
 
-    map<ll,int>mp;
+    int n; cin >> n;
+    vector<int>v(n);
+    map<int,int>mp;
 
-    ll a;
-    vector<int>v;
-
-    while ( cin >> a )
+    for (int i = 0; i < n; i++)
     {
-      if( mp[a] == 0) v.push_back(a);
-      mp[a]++;
+        cin >> v[i];
+        mp[v[i]]++;
     }
 
-    for (int i = 0; i < v.size(); i++)
+    ll ans = 0;
+
+    for (int i = 0; i < n; i++)
     {
-       cout << v[i] << " " << mp[ v[i]] << endl;
+        int val = v[i];
+
+        mp[ val ] --;
+        int rest = n - i - 1;
+
+        ans += (rest - mp[val]);
     }
+
+    cout << ans << endl;
     
+    
+
+
     
 
     return 0;
