@@ -13,28 +13,32 @@ using namespace std;
 #endif
 
 
-//https://vjudge.net/contest/600885#problem/J
+char lower( char ch){
+
+	if( ch >='A' && ch <= 'Z') return (ch+32);
+}
 int main()
 {
-    fast
+	fast
 
-    map<ll,int>mp;
+	set<string>st;
+	string s;
 
-    ll a;
-    vector<int>v;
+	while (cin >> s)
+	{
+		string tmp = "";
 
-    while ( cin >> a )
-    {
-      if( mp[a] == 0) v.push_back(a);
-      mp[a]++;
-    }
+		for (int i = 0; i < s.size(); i++)
+		{
+			char ch = lower( s[i] );
 
-    for (int i = 0; i < v.size(); i++)
-    {
-       cout << v[i] << " " << mp[ v[i]] << endl;
-    }
-    
-    
+			if( ch >= 'a' && ch<='z') tmp.push_back(ch);
+			
+		}
+		
+	}
+	
+	
 
-    return 0;
+	return 0;
 }
