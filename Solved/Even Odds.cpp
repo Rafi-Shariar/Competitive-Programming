@@ -13,33 +13,46 @@ using namespace std;
 #endif
 
 
+int main(){
 
-int main()
-{
-    fast
+   ll n,k;
+   cin>>n>>k;
 
-    int n,m;
-    cin >> n >> m;
+   ll odd_half = n/2;
+   
+   if(n % 2 == 1) odd_half++;
 
-    vector<int>a(n), b(m);
+   if(k<=odd_half){
 
-   forin(a,n);
-   forin(b,m);
+     ll c=2;
+     ll i=1;
+     while (c<=k)
+     {
+       // cout<<i<<endl;
+        i+=2;
+        c++;
+     }
 
-   int mn = min(a.size(), b.size());
-
-   ll c = 0;
-
-   for (int i = 0; i < mn; i++)
-   {
-      if( a[i] < b[i] ) c+= ( b[i] - a[i]);
+     cout<<i<<endl;
+     
    }
+   else
+   {
+     ll c = odd_half+2;
+     ll i=2;
 
-   cout << c << endl;
-   
+     while (c<=k)
+     {
+        i+=2;
+        c++;
+     }
+
+     cout<<i<<endl;
+     
+   }
    
     
-    
+
 
     return 0;
 }

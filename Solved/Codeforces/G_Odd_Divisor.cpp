@@ -12,34 +12,34 @@ using namespace std;
 #define debug(args...)
 #endif
 
-
-
-int main()
+//https://codeforces.com/contest/1475/problem/A
+bool isPowerOfTwo(long long int n)
 {
-    fast
-
-    int n,m;
-    cin >> n >> m;
-
-    vector<int>a(n), b(m);
-
-   forin(a,n);
-   forin(b,m);
-
-   int mn = min(a.size(), b.size());
-
-   ll c = 0;
-
-   for (int i = 0; i < mn; i++)
+    if (n == 0)
+        return false;
+ 
+    return (ceil(log2(n)) == floor(log2(n)));
+}
+int main(){
+ 
+   int t; cin>>t;
+   while (t--)
    {
-      if( a[i] < b[i] ) c+= ( b[i] - a[i]);
+     long long int n; cin>>n;
+ 
+     if(isPowerOfTwo(n)) cout<<"NO"<<endl;
+     else cout<<"YES"<<endl;
+ 
+ 
    }
-
-   cout << c << endl;
-   
    
     
-    
-
+ 
+ 
     return 0;
 }
+/*
+
+ if ceil(log2(n)) == floor(log2(n)) then n has odd divisor
+
+*/

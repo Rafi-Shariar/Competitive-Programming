@@ -70,8 +70,8 @@ int main()
 
 	while (t--)
 	{
-		vector<int>v = {5, 4, 5, 2, 3, 4, 5, 6};
-		int d = 5;
+		vector<int>v = {4, 78, 9};
+		int d = 2;
 
 		cout << weights(v,d);
 

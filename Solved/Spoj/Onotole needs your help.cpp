@@ -13,31 +13,24 @@ using namespace std;
 #endif
 
 
-
+//https://www.spoj.com/problems/OLOLO/
 int main()
 {
     fast
 
-    int n,m;
-    cin >> n >> m;
+    int n; cin >> n;
+    vector<int>v(n);
+    forin(v,n);
+    sort(v);
 
-    vector<int>a(n), b(m);
+    int ans = v[0];
 
-   forin(a,n);
-   forin(b,m);
+    for (int i = 1; i < n; i++)
+    {
+        ans ^= v[i];
+    }
 
-   int mn = min(a.size(), b.size());
-
-   ll c = 0;
-
-   for (int i = 0; i < mn; i++)
-   {
-      if( a[i] < b[i] ) c+= ( b[i] - a[i]);
-   }
-
-   cout << c << endl;
-   
-   
+    cout << ans << endl;
     
     
 

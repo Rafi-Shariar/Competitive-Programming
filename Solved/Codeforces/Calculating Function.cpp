@@ -13,32 +13,32 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/486/A
 int main()
 {
     fast
 
-    int n,m;
-    cin >> n >> m;
+    int t=1;
+    //cin>>t;
 
-    vector<int>a(n), b(m);
+    while (t--)
+    {
+        ll n; cin >> n;
 
-   forin(a,n);
-   forin(b,m);
+        ll ev = n/2;
 
-   int mn = min(a.size(), b.size());
 
-   ll c = 0;
+        ll total = ev * (ev+1);
 
-   for (int i = 0; i < mn; i++)
-   {
-      if( a[i] < b[i] ) c+= ( b[i] - a[i]);
-   }
+        if( n % 2 == 0) n = n/2;
+        else n = (n/2) + 1;
 
-   cout << c << endl;
-   
-   
-    
+        ll sum_of_odd = (n*n);
+
+
+        cout << total - sum_of_odd << endl;
+        
+    }
     
 
     return 0;

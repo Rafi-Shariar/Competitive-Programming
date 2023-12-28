@@ -13,32 +13,30 @@ using namespace std;
 #endif
 
 
-
+//https://atcoder.jp/contests/abc162/tasks/abc162_c?lang=en
 int main()
 {
     fast
 
-    int n,m;
-    cin >> n >> m;
+   int n; cin >> n;
 
-    vector<int>a(n), b(m);
+   int sum = 0;
 
-   forin(a,n);
-   forin(b,m);
-
-   int mn = min(a.size(), b.size());
-
-   ll c = 0;
-
-   for (int i = 0; i < mn; i++)
+   for (int i = 1; i <=n; i++)
    {
-      if( a[i] < b[i] ) c+= ( b[i] - a[i]);
+
+    for (int j = 1; j <= n; j++)
+    {
+        for (int k = 1; k <= n; k++)
+        {
+            sum += __gcd( __gcd(i,j) , k);
+        }   
+    }
+     
    }
 
-   cout << c << endl;
+   cout << sum << endl;
    
-   
-    
     
 
     return 0;

@@ -13,32 +13,28 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/479/A
 int main()
 {
     fast
 
-    int n,m;
-    cin >> n >> m;
+    int t=1;
+    //cin>>t;
 
-    vector<int>a(n), b(m);
+    while (t--)
+    {
+        int a,b,c;
+        cin >> a >> b >> c;
 
-   forin(a,n);
-   forin(b,m);
+        int x = a + (b*c);
+        int y = a * ( b+c );
+        int z = a*b*c;
+        int p = (a+b) * c;
+        int q = a+b+c;
 
-   int mn = min(a.size(), b.size());
-
-   ll c = 0;
-
-   for (int i = 0; i < mn; i++)
-   {
-      if( a[i] < b[i] ) c+= ( b[i] - a[i]);
-   }
-
-   cout << c << endl;
-   
-   
-    
+        cout << max ({x,y,z,p,q}) << endl;
+        
+    }
     
 
     return 0;

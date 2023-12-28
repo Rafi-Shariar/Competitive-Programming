@@ -18,27 +18,32 @@ int main()
 {
     fast
 
-    int n,m;
-    cin >> n >> m;
+    int t=1;
+    cin>>t;
 
-    vector<int>a(n), b(m);
+    while (t--)
+    {
+        int n,m;
+        cin >> n >> m;
 
-   forin(a,n);
-   forin(b,m);
+        if( n % m == 0) cout << 0 << endl;
+        else
+        {
+          if( m > n) cout << m - n << endl;
+          else
+          {
+            
+            cout << m - n % m << endl;
 
-   int mn = min(a.size(), b.size());
+           // cout << m - n << endl;
+            
+          }
+          
+            
 
-   ll c = 0;
-
-   for (int i = 0; i < mn; i++)
-   {
-      if( a[i] < b[i] ) c+= ( b[i] - a[i]);
-   }
-
-   cout << c << endl;
-   
-   
-    
+        }
+        
+    }
     
 
     return 0;
