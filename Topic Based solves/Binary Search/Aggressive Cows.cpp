@@ -59,7 +59,13 @@ int main()
 
     while (t--)
     {
-        
+        int n,cows;
+        cin >> n >> cows;
+
+        vector<int>v(n);
+        forin(v,n);
+
+        cout << aggressiveCows(v,cows) << endl;
     }
     
 
