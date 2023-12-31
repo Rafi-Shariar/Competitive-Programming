@@ -12,7 +12,7 @@ using namespace std;
 #define debug(args...)
 #endif
 
-//https://vjudge.net/contest/602040#problem/C
+
 
 int main()
 {
