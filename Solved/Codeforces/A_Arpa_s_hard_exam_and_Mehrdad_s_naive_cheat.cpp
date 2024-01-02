@@ -13,27 +13,30 @@ using namespace std;
 #endif
 
 
-
+// 8 , 4, 2 , 6 
+// 1   2  3   4 
+//https://codeforces.com/problemset/problem/742/A
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
-    while (t--)
-    {
-        int x,y,n;
-        cin >> x >> y >> n;
+    int arr[] = {6, 8 , 4 , 2};
 
-        int p = floor((n-y)/x);
+    ll a = 1378;
 
-        int k = p * x + y;
+    int n; cin >> n;
 
-        cout << k << endl;
-
+    if( n == 0 ){
+        cout << 1 << endl;
+        return 0;
     }
-    
+
+    cout << arr[ n%4 ] << endl;
+
+
 
     return 0;
 }

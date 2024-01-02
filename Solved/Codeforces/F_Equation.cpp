@@ -13,25 +13,31 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/F
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-        int x,y,n;
-        cin >> x >> y >> n;
+        ll a,n;
+        cin >> a >> n;
 
-        int p = floor((n-y)/x);
+        ll sum = 0;
 
-        int k = p * x + y;
+        for (int i = 2; i <= n; i+=2)
+        {
+           // cout << pow(a,i) << " ";
+            sum += round(pow(a,i) );
+        }
 
-        cout << k << endl;
-
+        cout << sum << endl;
+        
+       
+        
     }
     
 

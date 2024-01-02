@@ -16,6 +16,7 @@
         "array": "cpp",
         "initializer_list": "cpp",
         "regex": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "random": "cpp"
     }
 }

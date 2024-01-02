@@ -12,7 +12,7 @@ using namespace std;
 #define debug(args...)
 #endif
 
-
+//https://codeforces.com/problemset/problem/1370/A
 
 int main()
 {
@@ -23,15 +23,23 @@ int main()
 
     while (t--)
     {
-        int x,y,n;
-        cin >> x >> y >> n;
+        int n; cin >> n;
 
-        int p = floor((n-y)/x);
+        int ans = 1;
 
-        int k = p * x + y;
+        // for (int i = 1; i <= n; i++)
+        // {
+        //     for (int j = i+1; j <= n; j++)
+        //     {
+        //         ans = max(ans , __gcd(i,j));
 
-        cout << k << endl;
+        //         cout << i << " " << j << " " << __gcd(i,j) << endl;
+        //     }
+            
+        // }
 
+        cout << n/2 << endl;
+        
     }
     
 

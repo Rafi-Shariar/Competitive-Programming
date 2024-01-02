@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/1374/A
 int main()
 {
     fast

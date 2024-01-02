@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/1389/A
 int main()
 {
     fast
@@ -23,17 +23,22 @@ int main()
 
     while (t--)
     {
-        int x,y,n;
-        cin >> x >> y >> n;
+        ll l,r;
+        cin >> l >> r;
 
-        int p = floor((n-y)/x);
+        ll a = l * (2*l) / __gcd(l , 2*l);
 
-        int k = p * x + y;
-
-        cout << k << endl;
-
+        if( a > r) cout << "-1 -1" << endl;
+        else cout << l << " " << 2*l << endl;
     }
     
 
     return 0;
 }
+/*
+ for x < y is has to be atleast 2x. 
+    x < y >= 2x
+ 
+ if lcm( x, 2x) > r then -1 
+
+*/

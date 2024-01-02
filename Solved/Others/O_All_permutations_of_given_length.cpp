@@ -13,28 +13,35 @@ using namespace std;
 #endif
 
 
-//https://codeforces.com/contest/1915/problem/A
+//https://vjudge.net/contest/574988#problem/O
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-        int a,b,c;
-        cin >> a >> b >> c;
+        int n; cin >> n;
+        string s = "";
+        char c = '1';
+        for(int i=0; i<n; i++) { s+= c; c++; }
+        
 
-        map<int,int>mp;
-        mp[a]++;
-        mp[b]++;
-        mp[c]++;
+        set<string>st;
+        st.insert(s);
 
-        for(auto i : mp){
-
-            if( i.second == 1) cout << i.first << endl;
+        while (next_permutation(s.begin(), s.end()))
+        {
+            st.insert(s);
         }
+
+        for(auto i : st){
+            cout << i << endl;
+        }
+        
+        
     }
     
 

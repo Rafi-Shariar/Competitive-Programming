@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/598/A
 int main()
 {
     fast
@@ -23,14 +23,19 @@ int main()
 
     while (t--)
     {
-        int x,y,n;
-        cin >> x >> y >> n;
+        ll n; cin >> n;
 
-        int p = floor((n-y)/x);
+        ll total = n * (n + 1) / 2;
 
-        int k = p * x + y;
+        ll p = 0;
 
-        cout << k << endl;
+        for (int i = 1; i <= n; i*=2)
+        {
+            p += i;
+        }
+
+        cout << total - (2*p) << endl;
+        
 
     }
     
