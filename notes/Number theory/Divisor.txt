@@ -40,3 +40,13 @@ void find_div(ll n, vector<ll>&v){
    }
 
 }
+
+
+** number of divisors till 10^6
+for (int i = 1; i <=1000000; i++)
+{
+    for (int j = i; j <= 1000000; j+=i)
+    {
+        arr[j]++;
+    }
+}
