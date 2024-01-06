@@ -16,88 +16,78 @@ using namespace std;
 
 int main()
 {
-    fast
+    //fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
     while (t--)
     {
-        int n; int q;
-        cin >> n >> q;
-
-        vector< pair<int,int>>v(n);
+        int n; cin >> n;
+        vector<int>v(n);
+        
+        int x = 0;
 
         for (int i = 0; i < n; i++)
         {
-            v[i] = {i+1, 0};
+           cin >> v[i];
+           if( i > 0 && v[i-1] < v[i]) x++;
+
         }
 
-        while (q--)
+        vector<int>a,b;
+        a.push_back(v[0]);
+
+        int big = v[0];
+
+        for (int i = 1; i < n; i++)
         {
-            int x;
-            cin >> x;
-
-            if( x == 1){
-                char ch; cin >> ch;
-                vector< pair<int,int>>tmp(n);
-                int a = v[0].first;
-                int b = v[0].second;
-
-                if(ch == 'U'){
-
-                    tmp[0] = {a,b+1};
-                    for (int i = 1; i < n; i++)
-                    {
-                        tmp[i] = v[i-1];
-                    }
-
-                    v = tmp;
-
-                }
-                else if( ch == 'D'){
-
-                    tmp[0] = {a,b-1};
-                    for (int i = 1; i < n; i++)
-                    {
-                        tmp[i] = v[i-1];
-                    }
-
-                    v = tmp;
-                }
-                else if( ch == 'L'){
-
-                    tmp[0] = {a-1, b};
-                    for (int i = 1; i < n; i++)
-                    {
-                        tmp[i] = v[i-1];
-                    }
-
-                    v = tmp;
-                }
-                else
-                {
-                    tmp[0] = {a+1, b};
-                    for (int i = 1; i < n; i++)
-                    {
-                        tmp[i] = v[i-1];
-                    }
-
-                    v = tmp;
-                }
-                
-            }
+            if( v[i] > big) b.push_back(v[i]);
             else
             {
-                int y ; cin >> y;
+                if( (i+1 < n) && v[i] <= v[i+1] && v[i+1] <= big)
+                {
+                    a.push_back( v[i+1]);
+                    b.push_back(v[i]);
+                    i++;
+                }
+                else b.push_back(v[i]);
 
-                cout << v[y-1].first << " " << v[y-1].second << endl;
             }
             
-
         }
+
+        int c = 0;
+
+        debug(a,b);
+
+        if( a.size() > 1){
+
+            for (int i = 1; i < a.size(); i++)
+            {
+                if( a[i] > a[i-1]) c++;
+            }
+            
+        }
+
+        if( b.size() > 1){
+
+            for (int i = 1; i < b.size(); i++)
+            {
+                if( b[i] > b[i-1]) c++;
+            }
+            
+        }
+
+        cout << min(x,c) << endl;
+
+
+
+
+
         
-        
+
+
     }
     
 
