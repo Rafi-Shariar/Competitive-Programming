@@ -13,38 +13,63 @@ using namespace std;
 #endif
 
 
-double pos(double mid , double n){
+bool possible(ll w, ll h , ll n, ll mid){
 
-    return (mid*mid) + sqrt(mid);
+    ll a = mid / w;
+    ll b = mid / h;
+    ll c = a * b;
+
+    return c >= n;
+
 }
-double BS(double n){
 
-    double low = 0 , high = n;
+ll fun(ll w, ll h, ll n){
 
-    while(low <=  high){
+    ll cur = w*h;
 
-        double mid = low + (high - low )/2.0;
+    while ( !possible(w,h,n,cur))
+    {
+        cur *= 2;
+    }
 
-        debug(mid, pos(mid,n));
+    return cur;
+    
+}
 
-        if( pos(mid ,n) == n) return mid; 
+ll BS(ll w , ll h , ll n){
 
+    ll low = 1; 
+    ll high = fun(w,h,n);
 
-        if( pos(mid,n) < n) low = mid + .5;
-        else high = mid - .5;
+    while (low <= high)
+    {
+        ll mid = low + (high - low)/2;
+
+        if( possible(w,h,n,mid) ) high = mid - 1;
+        else low = mid + 1;
+
     }
 
     return low;
-
-
+  
 }
-int main()
+int  main()
 {
     fast
 
-    double n; cin >> n;
+    int t;
 
-    printf("%lf\n",BS(n));
+     t=1;
+    //cin>>t;
+
+    while (t--)
+    {
+        ll w,h,n;
+        cin >> w >> h >> n;
+
+        cout << BS(w,h,n) << endl;
+    }
+    
 
     return 0;
 }
