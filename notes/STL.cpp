@@ -7,18 +7,18 @@ int main()
     int x = stoi(s); // string to only integer , for ll use "stoill(s)"
     cout << "x : " << x << endl;
 
-    cout << to_string(x)  << endl; // int to string
+    // cout << to_string(x)  << endl; // int to string
 
-    cout << isalpha('D') << endl; // Upper - 1, lower - 2 , int - 0
+    // cout << isalpha('D') << endl; // Upper - 1, lower - 2 , int - 0
 
-    isdigit('2');
+    // isdigit('2');
 
-    cout << (char)tolower('A') << endl;
-    cout << (char)toupper('a') << endl;
+    // cout << (char)tolower('A') << endl;
+    // cout << (char)toupper('a') << endl;
 
-    cout << rand() << endl; // outputs random number
+    // cout << rand() << endl; // outputs random number
 
-    is_sorted(v.begin() , v.end()) // 1 is vector is sorted
+    // is_sorted(v.begin() , v.end()) // 1 is vector is sorted
 
 
      

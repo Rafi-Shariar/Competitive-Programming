@@ -13,18 +13,22 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/1208/A
 int main()
 {
     fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
     while (t--)
     {
-        cout << (7^6) << endl;
-        
+        int a,b,c;
+        cin >> a >> b >> c;
+
+        if( c % 3 == 0) cout << a << endl;
+        else if( c % 3 == 1) cout << b << endl;
+        else cout << (a^b) << endl;
     }
     
 

@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://vjudge.net/contest/602871#problem/J
 int main()
 {
     fast
@@ -23,7 +23,22 @@ int main()
 
     while (t--)
     {
-        cout << (7^6) << endl;
+        vector<int>v(3);
+        forin(v,3);
+
+        int k; cin >> k;
+        sort(v);
+
+        int cur = v[2];
+
+        for (int i = 0; i < k; i++)
+        {
+            cur += cur;
+        }
+
+       cout << v[0] + v[1] + cur << endl;
+        
+        
         
     }
     
