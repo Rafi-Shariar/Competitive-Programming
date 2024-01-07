@@ -11,4 +11,7 @@
  <= 25 ---> O (2^n)
  <= 10 ---> O ( n! )
 
+calculate time complexity :  my code time complexity / 1e8
+
+
 

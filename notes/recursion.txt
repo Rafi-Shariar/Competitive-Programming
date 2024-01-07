@@ -1,7 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-vector<int>v;
-int n,l,r;
 
 // printing all sub sequence of ans array 
 

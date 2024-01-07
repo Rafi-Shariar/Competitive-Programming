@@ -1,12 +1,11 @@
-#include<bits/stdc++.h>
-using namespace std;
-#define ll  long long int
 
 // custom comperator
 bool comp( pair<int,int>x, pair<int,int>y){
     if(x.first == y.first) return x.second > y.second;
     return x.first < y.first;
 }
+
+-----------------------------------------------------------------------------------------------------------
 
 // String to Integer converter
 ll stringToInt(string& s)
@@ -16,6 +15,10 @@ ll stringToInt(string& s)
         ans = ans * 10 + (s[i] - '0');
     return ans;
 } 
+
+
+-----------------------------------------------------------------------------------------------------------
+
 
 // intege to string converter
 
@@ -33,6 +36,9 @@ string intToString(ll num) {
     }
     return result;
 }
+
+
+-----------------------------------------------------------------------------------------------------------
 
 // Binary to decimal converter
 int binaryToDecimal(int n) 
@@ -55,6 +61,10 @@ int binaryToDecimal(int n)
     return dec_value; 
 }
 
+
+-----------------------------------------------------------------------------------------------------------
+
+
 // store number of divisor of n
 void  find_divisor(ll n, vector<ll>&v) 
 { 
@@ -71,6 +81,10 @@ void  find_divisor(ll n, vector<ll>&v)
         } 
     } 
 } 
+
+
+-----------------------------------------------------------------------------------------------------------
+
 
 
 

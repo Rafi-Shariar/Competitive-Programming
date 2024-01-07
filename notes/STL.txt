@@ -1,0 +1,100 @@
+                          vector
+
+push_back(), pop_back(), back(), front()
+
+* sort( v.begin() + l , v.begin()+r ) : sorts from l-th index to r-th index
+* V.erase ( v.begin()+index ) : removes that index from vector.
+* V.erase ( v.begin()+L, v.begin()+R ) : removes values in the range
+* 2D vector : vector<vector<int>> ans(r, vector<int>(c));
+
+bool custom_comparator ( pair<int,int>x, pair<int,int>y){
+
+   if(x.first == y.first) return x.second > y.second;
+   return x.first < y.first; 
+
+}
+
+----------------------------------------------------------------------------------------
+string
+
+ * Reverse in a range = reverse( s.begin()+l, s.begin()+r)
+
+ * deleting a substring
+      if(s.find("AB")){`
+
+        auto it  = s.find("AB");
+        string tmp = "AB";
+        s = s.erase( it, tmp.size());
+     }
+
+----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    string s = "12345";
+    int x = stoi(s); // string to only integer , for ll use "stoill(s)"
+    cout << "x : " << x << endl;
+
+    // cout << to_string(x)  << endl; // int to string
+
+    // cout << isalpha('D') << endl; // Upper - 1, lower - 2 , int - 0
+
+    // isdigit('2');
+
+    // cout << (char)tolower('A') << endl;
+    // cout << (char)toupper('a') << endl;
+
+    // cout << rand() << endl; // outputs random number
+
+    // is_sorted(v.begin() , v.end()) // 1 is vector is sorted
+

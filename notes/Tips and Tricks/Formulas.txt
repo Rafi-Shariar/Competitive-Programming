@@ -1,0 +1,24 @@
+- ** Sum of first n positive integers:-- >     n*(n+1)/2;
+    
+- ** Sum of first n odd positive integers:-- > n^2
+    
+  
+- **Sum of first n even positive integers:-- > n * ( n + 1 )
+    
+    
+- **Sum of first n squares:---> n*( n+1 )( 2n + 1 ) / 6
+    
+
+- **Sum of first n cubes:--> ( n * ( n+1 ) / 2 ) ^ 2
+    
+    
+- **sum of n numbers that are multiple of k --> k * n * ( n + 1 ) / 2;
+
+
+- **sum of n numbers that are not multiple of k  --- > ( n * ( n + 1 ) / 2 ) - ( k * n * ( n + 1 ) / 2 )
+
+
+-** Nth term : a + (n-1)d;
+
+- ** sum of n terms : n/2 * ( 2a + (n-1)d )
+

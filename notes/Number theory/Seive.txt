@@ -20,9 +20,9 @@ void sieve(int n) {
     }
 }
 
+-----------------------------------------------------------------------------------------------------------
+                    seive for generation 664579 prime numbers
 
-
-//seive for generation 664579 prime numbers
 const int N=90000001;
 bool marked[N+5];
 vector<int>v;
@@ -49,8 +49,8 @@ void seive(){
 
 
 
-
-// segment seive
+-----------------------------------------------------------------------------------------------------------
+                                    segment seive
 
 vector<ll> segment_sieve(ll l, ll r) {
     ll lim = sqrt(r);
@@ -87,31 +87,4 @@ vector<ll> segment_sieve(ll l, ll r) {
 }
 
 
-
-
-
-
-// memory effifien
-
-#define M2 100000000
-int marked2[ M2/2/32 + 2];
-
-#define on(x) ( marked[(x/2)/32] & ( 1<< ( (x/2) % 32)) )
-#define mark(x) ( marked[(x/2)/32] != ( 1<< ( (x/2) % 32)) )
-
-void seive2( int n){
-
-    for (int i = 3; i*i < n; i+=2)
-    {
-        if( !on(i) ){
-
-            for (int j = i*i; j <= n; j+= i+i)
-            {
-                mark(j);
-            }
-            
-        }
-    }
-    
-}
 

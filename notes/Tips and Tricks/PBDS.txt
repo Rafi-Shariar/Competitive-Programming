@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+using namespace std;;
+template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+
+
+1. Elements can be access by index
+
+   Syntax : *s.find_by_order( i );
+   Time complexity: logn
+
+2. N er chaite strictly less koyta element ache
+
+  Syntax : s.order_of_key( n )
+  Time complexity : logn
+
+- Descending a shajate template a **less** er jaygay **greater** dite dite hobe
+- Multiset hishebe use korte template a **less** er jaygay **less_equal** dite dite hobe  erase & find a ektu jhamela kore, 
+  tai pair akare pbds use kore , 2nd value te occurrence manage korte pari
+
+
+
