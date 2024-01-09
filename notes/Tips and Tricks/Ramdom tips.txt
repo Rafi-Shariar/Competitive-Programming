@@ -1,0 +1,7 @@
+** if given 2 largest divisors of a number and we need to find the number then
+
+    if( b % a == 0) ---> b * (b/a) 
+    else --->  b * (a / __gcd(a,b)) 
+      
+
+---------------------------------------------------------------------------------------

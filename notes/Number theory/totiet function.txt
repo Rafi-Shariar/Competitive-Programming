@@ -1,3 +1,9 @@
+
+theory : n er cheye choto joto gula shongkha n er shathe Co-prime( GCD 1 )
+ -- if n is prime then , Φ( n) = n - 1.
+ -- if n is prime and a>0 then Φ( n^a ) = n^a * ( 1 - 1/n )
+ -- Φ( n * m ) = Φ( n) * Φ( m )
+
 int totient( int n){
 
     int ans = n;
@@ -15,4 +21,29 @@ int totient( int n){
 
     return ans;
     
+}
+
+
+---------------------------------------------------------------------------
+                        totient of every number form 1 to n 
+
+#define mx 10000
+float phi[mx+1];
+void sievePhi(int n){
+
+  for(int i=1;i<=n;i++){
+          phi[i]=i;
+    }
+
+   for(int i=2;i<=n;i++){
+
+       if(phi[i]==i){
+            for(int j=i;j<=n;j+=i){
+                phi[j]*=(1-1.0/i);
+            }
+        }
+    }
+
+    return;
+
 }

@@ -86,5 +86,45 @@ vector<ll> segment_sieve(ll l, ll r) {
     return primes_in_segment;
 }
 
+-----------------------------------------------------------------------------------------------------------
+                                        Bitwise Seive ( memory effecient )
+
+int prime[10000];
+int setBit( int n, int position){ 
+    n = n | ( n << position);
+    return n;
+}
+
+bool checkbit( int n, int position){
+    return n & (n << position);
+}
+
+void primeGenerator( int n){
+
+    prime[0] = setBit( prime[0] , 0);
+    prime[0] = setBit( prime[0] , 1);
+
+    for (int i = 4; i <= n; i+=2)
+    {
+        prime[i/32] = setBit( prime[i/32] , i%32);
+    }
+
+    for (int i = 3; i <= sqrt(n); i+=2)
+    {
+        if( !checkbit( prime[i/32] , i%32)){
+
+            for (int j = i+i; j <= n; j+=i)
+            {
+                prime[ j/32] = setBit( j/32 , j%32);
+            }
+            
+        }
+    }
+
+    return;
+      
+}
+
+
 
 

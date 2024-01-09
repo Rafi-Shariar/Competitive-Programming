@@ -12,21 +12,37 @@ using namespace std;
 #define debug(args...)
 #endif
 
+//http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1120
+int totient( int n){
 
+    int ans = n;
 
+    for (int i = 2; i*i <= n; i++)
+    {
+        if( n%i == 0){
+
+            while ( n%i == 0) n /= i;
+            ans -= ans/i;
+            
+        }
+    }
+
+    if( n > 1) ans -= ans/n;
+
+    return ans;
+    
+}
 int main()
 {
     fast
 
-    int t=1;
-    cin>>t;
+    ll n; 
 
-    while (t--)
+    while (cin >> n && n)
     {
-        int n; cin >> n;
-
-        cout << n;
+        cout << totient(n) << endl;
     }
+    
     
 
     return 0;

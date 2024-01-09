@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/1747/A
 int main()
 {
     fast
@@ -25,7 +25,24 @@ int main()
     {
         int n; cin >> n;
 
-        cout << n;
+        ll a =0 , b = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            ll x; cin >> x;
+
+            if( x < 0 ) a += x;
+            else b += x;
+        }
+
+        cout << abs(abs( a) - abs(b) ) << endl;
+
+        
+        
+
+
+
+        
     }
     
 

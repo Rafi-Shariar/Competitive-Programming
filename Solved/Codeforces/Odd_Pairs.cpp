@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://www.codechef.com/problems/ODDPAIRS
 int main()
 {
     fast
@@ -23,9 +23,24 @@ int main()
 
     while (t--)
     {
-        int n; cin >> n;
+        ll n; cin >> n;
 
-        cout << n;
+        ll odd,even;
+
+        if( n%2==1){
+            even = n/2;
+            odd = n/2 + 1;
+        }
+        else
+        {
+            even = n/2;
+            odd = n/2;
+        }
+
+        cout << (even*odd) * 2 <<endl;
+        
+
+        
     }
     
 

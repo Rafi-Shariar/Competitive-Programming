@@ -13,19 +13,37 @@ using namespace std;
 #endif
 
 
-
+const ll mod = 1e9 + 7;
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
+
+    ll sum = 0;
 
     while (t--)
     {
         int n; cin >> n;
+        vector<int>v(n);
+        forin(v,n);
 
-        cout << n;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = i+1; j < n; j++)
+            {
+                sum += ( (( v[i] % mod)*(v[j] % mod) ) % mod );
+            }
+            
+        }
+
+
+        cout << sum << endl;
+        
+
+
+        
     }
     
 

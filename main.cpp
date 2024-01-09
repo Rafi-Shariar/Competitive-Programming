@@ -23,7 +23,7 @@ int main()
 
     while (t--)
     {
-        cout << (7^6) << endl;
+        cout << __gcd(0,12) << endl;
         
     }
     

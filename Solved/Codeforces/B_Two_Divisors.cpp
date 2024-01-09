@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/1916/B
 int main()
 {
     fast
@@ -23,9 +23,19 @@ int main()
 
     while (t--)
     {
-        int n; cin >> n;
+        int a,b;
+        cin >> a >> b;
 
-        cout << n;
+        if( b % a == 0){
+
+            cout << b * (b/a) << endl;
+        }
+        else
+        {
+            cout << b * (a / __gcd(a,b)) << endl;
+        }
+        
+        
     }
     
 

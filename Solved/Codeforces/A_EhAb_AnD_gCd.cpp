@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/1325/A
 int main()
 {
     fast
@@ -23,9 +23,8 @@ int main()
 
     while (t--)
     {
-        int n; cin >> n;
-
-        cout << n;
+        int x; cin >> x;
+        cout << 1 << " " << x-1 << endl;
     }
     
 
