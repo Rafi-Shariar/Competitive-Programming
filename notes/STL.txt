@@ -1,4 +1,4 @@
-                          vector
+                        *** vector ****
 
 push_back(), pop_back(), back(), front()
 
@@ -6,6 +6,7 @@ push_back(), pop_back(), back(), front()
 * V.erase ( v.begin()+index ) : removes that index from vector.
 * V.erase ( v.begin()+L, v.begin()+R ) : removes values in the range
 * 2D vector : vector<vector<int>> ans(r, vector<int>(c));
+
 
 bool custom_comparator ( pair<int,int>x, pair<int,int>y){
 
@@ -15,7 +16,7 @@ bool custom_comparator ( pair<int,int>x, pair<int,int>y){
 }
 
 ----------------------------------------------------------------------------------------
-string
+                        *** string ****
 
  * Reverse in a range = reverse( s.begin()+l, s.begin()+r)
 
@@ -27,20 +28,96 @@ string
         s = s.erase( it, tmp.size());
      }
 
+
+* next_permutation(s.begin(),s.end()) : generated permutations in sorted order.
+
+* Substring : x = s.substr( starting index , number of characters )
 ----------------------------------------------------------------------------------------
+                        *** Stack ****               ** Queue ***
+                                           |
+ - inserts at top                          | - inserts at back
+ - pops at top                             | - pops from top
+ can not be iterattes
+                           all operation are O (1)
+
+----------------------------------------------------------------------------------------
+                        *** Duque ****
+
+ - DQ[ index ] = accessing elements by index 
+ - sort / reverse all vector functions can be used
+
+----------------------------------------------------------------------------------------
+                        *** Priority Queue ****
+
+sorted in Big to low. 
+push & pop ( logn). 
+
+- to max min Priority queue ( small to big) : priority_queue<int, vector<int>, greater<int>> pq
+
+----------------------------------------------------------------------------------------
+                        *** Set ****
+
+No dublicates & sorted in small to big
+
+- st.erase( value ) (logn)     - st.inserts() : logn   - st.find() logn
+- lower_bound(x) : Get an iterator to the first element >= x      auto it = se.lower_bound(2); logn
+- upper_bound(x) : Get an iterator to the first element > x
 
 
+----------------------------------------------------------------------------------------
+                        *** Unordered Set ****
+
+No dublicates & not sorted
+
+----------------------------------------------------------------------------------------
+                        *** Multi Set ****
+
+can have duplicates & sorted in small to Big
+
+- se.erase(x) : removes all occurence in the Set
+- se.erase ( se.find(x) ) : removes one occurence of x
+- se.count(x) : number of occurence of x
+all are logn 
 
 
+----------------------------------------------------------------------------------------
+                        *** Map ****
+
+almost all operation are in logn
+
+- lower_bound( 2 ) : Get an iterator to the first element >= x
+- upper_bound ( 2) : Get an iterator to the first element > x
+
+----------------------------------------------------------------------------------------
+                        *** Bitset ****
+
+stores binary representation of a number
+     bitset<number of bits> bs ( value);
+   - each bit can be accessed by index : bs[1]
+   - 	Set a specific bit to 1 : bs.set(index);
+   - 	Reset a specific bit to 0 : bs.reset( index )
+   - Flip a specific bit : bs.flip( index )
+   - count number of 1's : bs.count();
+   - Convert to unsigned long long : bs.to_ullong();
+   - Convert to string : bs.to_string();
+   - left shift : bs << 1 ;       - right shift : bs >> 1
+   
+   time complexity for most operations : O ( n / W )
+
+   can store 10^8 bits of a number.
 
 
+----------------------------------------------------------------------------------------
+                        *** string Steam ****
 
-
-
-
-
-
-
+string s = "  I am Bapparaj. I am 20 years old.  ";
+  stringstream ss(s); // ss is now a stream that contains the string s
+  cout << ss.str() << '\n'; // print the string in the stream
+  string word;
+  while (ss >> word) { // read words from the stream, almost like cin >> word
+    cout << word << '\n';
+  }
+  // So this is useful when you want to get all the words from a string one by one
 
 
 

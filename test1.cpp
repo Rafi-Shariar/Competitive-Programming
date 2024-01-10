@@ -1,33 +1,16 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-#define ll         long long int
-#define sort(x)    sort(x.begin(),x.end())
-#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
-#define endl       "\n"
-#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
 
-
-
-int main()
-{
-    fast
-
-    int t=1;
-    cin>>t;
-
-    while (t--)
-    {
-        int n; cin >> n;
-
-        cout << n;
-    }
-    
-
-    return 0;
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  string s = "  I am Bapparaj. I am 20 years old.  ";
+  stringstream ss(s); // ss is now a stream that contains the string s
+  cout << ss.str() << '\n'; // print the string in the stream
+  string word;
+  while (ss >> word) { // read words from the stream, almost like cin >> word
+    cout << word << '\n';
+  }
+  // So this is useful when you want to get all the words from a string one by one
+  return 0;
 }
