@@ -1,16 +1,72 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll         long long int
+#define sort(x)    sort(x.begin(),x.end())
+#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
+#define endl       "\n"
+#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
+#ifdef LOKAL
+#include "DEBUG_TEMPLATE.h"
+#else
+#define HERE
+#define debug(args...)
+#endif
 
-int32_t main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  string s = "  I am Bapparaj. I am 20 years old.  ";
-  stringstream ss(s); // ss is now a stream that contains the string s
-  cout << ss.str() << '\n'; // print the string in the stream
-  string word;
-  while (ss >> word) { // read words from the stream, almost like cin >> word
-    cout << word << '\n';
-  }
-  // So this is useful when you want to get all the words from a string one by one
-  return 0;
+
+ll numberofDivisor( ll n){
+    map<ll,int>mp;
+    while( n%2==0){
+        mp[2]++;
+        n/=2;
+    }
+
+    for (ll i = 3; i <= sqrt(n); i+=2)
+    {
+        while( n % i == 0){
+            mp[i]++;
+            n/=i;
+        }
+    }
+
+    if(n>2) mp[n]++;
+
+    ll ans = 1;
+    for( auto i : mp){
+        ans *= (i.second + 1);
+    }
+
+    return ans;
+
+}
+int main()
+{
+    fast
+
+    int t=1;
+    //cin>>t;
+
+    while (t--)
+    {
+        ll n; cin >> n;
+
+        while (true)
+        {
+            ll cur = numberofDivisor(n+1);
+
+            if( cur == n){
+                n = cur;
+                break;
+            }
+
+            n++;
+        }
+        
+
+        cout << n << endl;
+        
+
+    }
+    
+
+    return 0;
 }
