@@ -13,43 +13,33 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/334/A
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
         int n; cin >> n;
-        deque<int>r,a;
 
-        for(int i=1; i<=n; i++) r.push_back(i);
+         n = n*n;
 
-        for (int i = 0; i < n; i++)
+        int i = 1;
+
+        while (i < n)
         {
-            if( !a.empty()){
+            cout << i << " " << n << endl;
 
-                int last_ele = a.back();
-                a.pop_back();
-                a.push_front( last_ele);
-            }
-
-            int last_ele = r.back();
-            r.pop_back();
-            a.push_front(last_ele);
+            i++;
+            n--;
         }
 
-        for (int i = 0; i < n; i++)
-        {
-            cout << a[i] ;
 
-            if( i < n-1) cout << " ";
-        }
         
-        cout << endl;
+
         
         
         

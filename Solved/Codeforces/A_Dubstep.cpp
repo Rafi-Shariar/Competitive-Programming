@@ -13,43 +13,48 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/problemset/problem/208/A
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-        int n; cin >> n;
-        deque<int>r,a;
+        string s; cin >> s;
 
-        for(int i=1; i<=n; i++) r.push_back(i);
+        size_t pos;
 
-        for (int i = 0; i < n; i++)
+        while ( ( pos = s.find("WUB") )!= string::npos)
         {
-            if( !a.empty()){
+            
+            s.replace(pos, 3 , " ");
+        }
 
-                int last_ele = a.back();
-                a.pop_back();
-                a.push_front( last_ele);
+        string ans = "";
+
+        for (int i = 0; i < s.size(); i++)
+        {
+
+            if( s[i] == ' '){
+
+                if( i == 0 || i == s.size()-1 || ans.back() == ' ') continue;
             }
 
-            int last_ele = r.back();
-            r.pop_back();
-            a.push_front(last_ele);
+            ans += s[i];
+            
         }
 
-        for (int i = 0; i < n; i++)
-        {
-            cout << a[i] ;
-
-            if( i < n-1) cout << " ";
-        }
+        cout << ans << endl;
         
-        cout << endl;
+
+
+
+
+       
+        
         
         
         

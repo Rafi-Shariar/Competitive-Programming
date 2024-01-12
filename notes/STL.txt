@@ -32,6 +32,8 @@ bool custom_comparator ( pair<int,int>x, pair<int,int>y){
 * next_permutation(s.begin(),s.end()) : generated permutations in sorted order.
 
 * Substring : x = s.substr( starting index , number of characters )
+
+*  size_t pos;      s.replace( iterator, size , thing);
 ----------------------------------------------------------------------------------------
                         *** Stack ****               ** Queue ***
                                            |

@@ -1,72 +1,31 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
-#define ll         long long int
-#define sort(x)    sort(x.begin(),x.end())
-#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
-#define endl       "\n"
-#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
+using ll = long long;
 
-
-ll numberofDivisor( ll n){
-    map<ll,int>mp;
-    while( n%2==0){
-        mp[2]++;
-        n/=2;
-    }
-
-    for (ll i = 3; i <= sqrt(n); i+=2)
-    {
-        while( n % i == 0){
-            mp[i]++;
-            n/=i;
-        }
-    }
-
-    if(n>2) mp[n]++;
-
-    ll ans = 1;
-    for( auto i : mp){
-        ans *= (i.second + 1);
-    }
-
-    return ans;
-
-}
-int main()
-{
-    fast
-
-    int t=1;
-    //cin>>t;
-
-    while (t--)
-    {
-        ll n; cin >> n;
-
-        while (true)
-        {
-            ll cur = numberofDivisor(n+1);
-
-            if( cur == n){
-                n = cur;
-                break;
+void find_div(int n, int m, vector<int>& v) {
+    for (ll i = 1; i * i <= n; i++) {
+        if (n % i == 0 && m % i == 0) {
+            v.push_back(i);
+            if (n / i != i && m % (n / i) == 0) {
+                v.push_back(n / i);
             }
-
-            n++;
         }
-        
-
-        cout << n << endl;
-        
-
     }
-    
+}
+
+int main() {
+    int n = 12;
+    int m = 18;
+    vector<int> commonDivisors;
+
+    find_div(n, m, commonDivisors);
+
+    cout << "Common divisors of " << n << " and " << m << " are: ";
+    for (int divisor : commonDivisors) {
+        cout << divisor << " ";
+    }
 
     return 0;
 }
