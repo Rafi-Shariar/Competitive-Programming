@@ -34,6 +34,26 @@ bool custom_comparator ( pair<int,int>x, pair<int,int>y){
 * Substring : x = s.substr( starting index , number of characters )
 
 *  size_t pos;      s.replace( iterator, size , thing);
+
+    string s = "12345";
+    int x = stoi(s); // string to only integer , for ll use "stoill(s)"
+    cout << "x : " << x << endl;
+
+    to_string(y)
+
+    // cout << to_string(x)  << endl; // int to string
+
+    // cout << isalpha('D') << endl; // Upper - 1, lower - 2 , int - 0
+
+    // isdigit('2');
+
+    // cout << (char)tolower('A') << endl;
+    // cout << (char)toupper('a') << endl;
+
+    // cout << rand() << endl; // outputs random number
+
+    // is_sorted(v.begin() , v.end()) // 1 is vector is sorted
+
 ----------------------------------------------------------------------------------------
                         *** Stack ****               ** Queue ***
                                            |
@@ -160,20 +180,4 @@ string s = "  I am Bapparaj. I am 20 years old.  ";
 
 
 
-    string s = "12345";
-    int x = stoi(s); // string to only integer , for ll use "stoill(s)"
-    cout << "x : " << x << endl;
-
-    // cout << to_string(x)  << endl; // int to string
-
-    // cout << isalpha('D') << endl; // Upper - 1, lower - 2 , int - 0
-
-    // isdigit('2');
-
-    // cout << (char)tolower('A') << endl;
-    // cout << (char)toupper('a') << endl;
-
-    // cout << rand() << endl; // outputs random number
-
-    // is_sorted(v.begin() , v.end()) // 1 is vector is sorted
 

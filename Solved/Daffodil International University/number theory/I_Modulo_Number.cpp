@@ -13,40 +13,27 @@ using namespace std;
 #endif
 
 
-
+//https://vjudge.net/contest/603667#problem/I
 int main()
 {
-    //fast
+    fast
 
-    int t=1,tt=1;
-    cin>>t;
+    int t=1;
+    //cin>>t;
 
     while (t--)
     {
-        ll n,k;
-        cin >> n >> k;
+        ll value = 998244353;
 
-        ll res = n - k;
+        ll n; cin >> n;
 
-        ll mod = 1000003;
+        ll ans = n % value;
 
-        ll fac = 1;
+        if( ans < 0) ans = ans + value;
 
-        for (ll i = k+1; i <= n; i++)
-        {
-            fac = ((fac%mod) * (i%mod) ) % mod;
-        }
-
-        printf("Case %d: ",tt++);
-
-        if( k == 0) cout << 1 << endl;
-        else if( res <= 0) cout << 0 << endl;
-        else cout << fac / res << endl;
-
+        cout << ans << endl;
 
         
-
-
     }
     
 
