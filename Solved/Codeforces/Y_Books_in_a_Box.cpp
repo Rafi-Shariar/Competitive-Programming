@@ -13,60 +13,40 @@ using namespace std;
 #endif
 
 
-//https://codeforces.com/contest/1920/problem/A
+
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
         int n; cin >> n;
 
-        int l = INT_MIN;
-        int R = INT_MAX;
-        int rem = 0;
-
-        vector<int>v;
+        stack<int>st;
 
         while (n--)
         {
-            int a,b;
-            cin >> a >> b;
+            int a; cin >> a;
 
             if( a == 1){
-                l = max(l,b);
-          
-            }
-            else if ( a == 2){
 
-                R = min(R, b);
-              
+                int b; cin >> b;
+                st.push(b);
             }
             else
             {
-                v.push_back(b);
-               
+                if( a == 2 && !st.empty() ) st.pop();
+                else{
+
+                    if( !st.empty()) cout << st.top() << endl;
+                }
             }
             
-            
         }
-
-        for (int i = 0; i < v.size(); i++)
-        {
-            int val = v[i];
-
-            if( val >= l && val <= R) rem++;
-
-        }
-
-        int ans = R - l + 1 - rem ;
-
-        cout << max(ans,0) << endl;
-
-     
+        
         
     }
     

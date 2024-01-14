@@ -13,60 +13,52 @@ using namespace std;
 #endif
 
 
-//https://codeforces.com/contest/1920/problem/A
+
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
         int n; cin >> n;
 
-        int l = INT_MIN;
-        int R = INT_MAX;
-        int rem = 0;
+        queue<int>q;
 
-        vector<int>v;
 
         while (n--)
         {
             int a,b;
             cin >> a >> b;
 
-            if( a == 1){
-                l = max(l,b);
-          
-            }
-            else if ( a == 2){
-
-                R = min(R, b);
-              
-            }
+            if( a == 1) q.push(b);
             else
             {
-                v.push_back(b);
-               
+                if( !q.empty() && q.front() == b){
+                    cout << "Yes" << endl;
+                    q.pop();
+                }
+                else
+                {
+                    if(q.front() != b){
+                        cout << "No" << endl;
+                        q.pop();
+                    }
+                    else
+                    {
+                        cout << "No" << endl;
+                    }
+                    
+                }
+                
             }
             
-            
         }
 
-        for (int i = 0; i < v.size(); i++)
-        {
-            int val = v[i];
-
-            if( val >= l && val <= R) rem++;
-
-        }
-
-        int ans = R - l + 1 - rem ;
-
-        cout << max(ans,0) << endl;
-
-     
+        
+        
         
     }
     
