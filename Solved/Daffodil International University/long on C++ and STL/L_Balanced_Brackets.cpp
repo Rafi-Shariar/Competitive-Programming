@@ -12,7 +12,7 @@ using namespace std;
 #define debug(args...)
 #endif
 
-//https://vjudge.net/contest/600885#problem/L
+//https://vjudge.net/contest/603526#problem/C
 bool check(char a, char b) {
 
     if( a == '{' && b == '}') return true;
@@ -26,7 +26,7 @@ int main()
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
