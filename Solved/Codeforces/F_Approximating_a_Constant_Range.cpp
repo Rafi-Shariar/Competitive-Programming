@@ -13,19 +13,18 @@ using namespace std;
 #endif
 
 
-bool check(vector<int>&v, int range){
+bool check(vector<ll>&v, ll range){
 
-    int i=0, j=0;
+    ll i=0, j=0;
 
-    int mn = INT_MAX;
-    int mx = INT_MIN;
+    ll mn = INT_MAX;
+    ll mx = INT_MIN;
 
-    int cur = 0;
+    ll cur = 0;
 
-    while (j<v.size() && i < v.size())
+    while (j<v.size())
     {
         mn = min(mn,v[j]);
-        mn = min(mn,v[i]);        
         mx = max(mx, v[j]);
         int dif = mx - mn;
 
@@ -36,7 +35,7 @@ bool check(vector<int>&v, int range){
         else
         {
             i++;
-            mn = max(mn,v[i]);
+            mn = v[i];
 
             if( i > j){
 
@@ -55,15 +54,13 @@ bool check(vector<int>&v, int range){
     return cur >= range;
     
 }
-int BS(vector<int>&v){
+ll BS(vector<ll>&v){
 
-    int low = 0 , high = v.size();
-
-    int ans = 0;
+    ll low = 0 , high = v.size();
 
     while (low <= high)
     {
-        int mid = low + (high - low)/2;
+        ll mid = low + (high - low)/2;
 
         if(check(v,mid)) low = mid + 1;
         else high = mid - 1;
@@ -85,7 +82,7 @@ int main()
     while (t--)
     {
         int n; cin >> n;
-        vector<int>v(n);
+        vector<ll>v(n);
         forin(v,n);
 
         cout << BS(v) << endl;
