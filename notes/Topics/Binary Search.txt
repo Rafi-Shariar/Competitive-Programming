@@ -72,3 +72,18 @@ bool searchInARotatedSortedArrayII(vector<int>&v, int key) {
 }
 
 //-----------------------------------------------------------------------------------------------------------------------
+                                          bianry search on doubles
+
+   double low = 0 , high = 2e9;
+        double ans = 0;
+
+        while ( high - low >= 1e-7)
+        {
+            double mid = low + (high-low)/2;
+
+            if( pos(mid , v , k)){
+                ans = mid;
+                low = mid;
+            }
+            else high = mid;
+        }
