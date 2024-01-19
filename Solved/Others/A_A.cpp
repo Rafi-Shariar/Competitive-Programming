@@ -19,18 +19,23 @@ int main()
     fast
 
     int t=1;
-    cin>>t;
+   // cin>>t;
 
     while (t--)
     {
-        
+        double a; cin >> a;
+
+        double x = (5280.0/4854.0) * 1000.0;
+
+        double ans = round(a*x);
+
+        printf("%.lf\n",ans);
+
+
+
+
     }
     
 
     return 0;
 }
-/*
-Author: Rafi Shariar
-Created:  20-January-2024  02:34:44
-*/ 
- 

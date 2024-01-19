@@ -1,4 +1,6 @@
 
+****Log in to kattis, press F12, go to application, then cookies, click on kattis, you will get the value.
+
 // custom comperator
 bool comp( pair<int,int>x, pair<int,int>y){
     if(x.first == y.first) return x.second > y.second;

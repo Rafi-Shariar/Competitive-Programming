@@ -1,94 +1,36 @@
-#include <bits/stdc++.h>
+#include<iostream>
+#include<math.h>
+#include<algorithm>
+#include<stdio.h>
+#include<map>
+#include<vector>
+#include<set>
+#include<iomanip>
+#define F first
+#define S second
+#define P system("PAUSE");
+#define H return 0;
+#define pb push_back
 using namespace std;
-#define ll         long long int
-#define sort(x)    sort(x.begin(),x.end())
-#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
-#define endl       "\n"
-#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
+const long long A=100000000000000LL,N=228228;
 
+char e[21];
+vector<string> ot;
+pair<int,pair<int,string> > a[N];
+long long o,p[3]={-1,-1,-1};
+int i,j,l,r,n,m;
 
-bool check(vector<int>&v, int range){
-
-    int i=0, j=0;
-
-    int mn = INT_MAX;
-    int mx = INT_MIN;
-
-    int cur = 0;
-
-    while (j<v.size())
-    {
-        mn = min(mn,v[j]);
-        mx = max(mx, v[j]);
-        int dif = mx - mn;
-
-        if( dif <= 1){
-            j++;
-            cur = max(cur,(j-i));
-        }
-        else
-        {
-            i++;
-            mn = v[i];
-
-            if( i > j){
-
-                i = j;
-                mn = v[i];
-                mx = v[i];
-            }
-        }
-
-        //cout << range<< " " << cur << endl;
-        
-    }
-
-    //cout << range << "----" << cur << endl;
-
-    return cur >= range;
-    
-}
-int BS(vector<int>&v){
-
-    int low = 0 , high = 1e9;;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low)/2;
-
-        if(check(v,mid)) low = mid + 1;
-        else high = mid - 1;
-    }
-
-    //cout << low << " " << high << endl;
-
-    return low-1;
-    
-
-}
-int main()
-{
-    fast
-
-    int t=1;
-    //cin>>t;
-
-    while (t--)
-    {
-        int n; cin >> n;
-        vector<int>v(n);
-        forin(v,n);
-
-        cout << BS(v) << endl;
-        
-    }
-    
-
-    return 0;
+int main(){
+	cin>>n>>m;
+	for(i=0;i<n;++i){
+	    scanf("%d%d",&a[i].F,&a[i].S.F);
+	    a[i].S.S=e;
+	}
+	sort(a,a+n);
+	for(l=0;l<n;o-=a[l].S.F,++l){
+		while(r<n && abs(a[l].F-a[r].F)<m)o+=a[r].S.F,++r;
+		if(o>=p[0])p[0]=o,p[1]=l,p[2]=r;
+	}
+	for(i=p[1];i<p[2];++i)ot.pb(a[i].S.S);
+	cout<<p[0]<<"\n";
 }
