@@ -15,6 +15,10 @@ bool custom_comparator ( pair<int,int>x, pair<int,int>y){
 
 }
 
+
+int x = accumulate(v.begin(), v.end() , size);  // sum of elements 
+
+
 ----------------------------------------------------------------------------------------
                         *** string ****
 
@@ -53,6 +57,29 @@ bool custom_comparator ( pair<int,int>x, pair<int,int>y){
     // cout << rand() << endl; // outputs random number
 
     // is_sorted(v.begin() , v.end()) // 1 is vector is sorted
+
+
+
+
+bool check_subsequence(string a, string b){
+
+    int i = 0;
+
+    for(auto ch : b){
+
+        while (a[i] != ch && i<a.size() )
+        {
+            i++;
+        }
+
+        if( i >= a.size()) return false;
+
+        i++;
+        
+    }
+
+    return true;
+}
 
 ----------------------------------------------------------------------------------------
                         *** Stack ****               ** Queue ***

@@ -84,7 +84,27 @@ void  find_divisor(ll n, vector<ll>&v)
 
 
 -----------------------------------------------------------------------------------------------------------
+                            // check is b is a subsequence of a
 
+bool check_subsequence(string a, string b){
+
+    int i = 0;
+
+    for(auto ch : b){
+
+        while (a[i] != ch && i<a.size() )
+        {
+            i++;
+        }
+
+        if( i >= a.size()) return false;
+
+        i++;
+        
+    }
+
+    return true;
+}
 
 
 
