@@ -12,20 +12,36 @@ using namespace std;
 #define debug(args...)
 #endif
 
-
+//https://atcoder.jp/contests/abc337/tasks/abc337_a
 
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-        int n = 10;
+        int n; cin >> n;
+        
+        int tak =- 0 , aok = 0;
 
-        debug(n);
+        for (int i = 0; i < n; i++)
+        {
+            int a, b;
+            cin >> a >> b;
+
+            tak += a;
+            aok += b;
+        }
+
+
+        if( tak > aok ) cout << "Takahashi" << endl;
+        else if( tak == aok) cout << "Draw" << endl;
+        else cout << "Aoki" << endl;
+        
+        
     }
     
 
@@ -33,6 +49,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  20-January-2024  19:08:52
+Created:  20-January-2024  18:01:05
 */ 
  
