@@ -16,23 +16,27 @@ using namespace std;
 
 int main()
 {
-    fast
+      int t; cin>>t;
 
-    int t=1;
-    cin>>t;
-
-    while (t--)
+    for (int i = 1; i <= t; i++)
     {
-        char ch; cin >> ch;
+        int a,b;
+        cin>>a>>b;
 
-        cout << isalpha(ch) << endl;
+        int ans;
+        
+        if(b>=a) ans = 19 + (b*4);
+        else{
+             ans = 19 + ((a-b)*4) + (a*4);
+        }
+
+        printf("Case %d: %d\n",i,ans);
     }
-    
 
     return 0;
 }
 /*
 Author: Rafi Shariar
-Created:  22-January-2024  20:52:51
+Created:  22-January-2024  20:35:26
 */ 
  

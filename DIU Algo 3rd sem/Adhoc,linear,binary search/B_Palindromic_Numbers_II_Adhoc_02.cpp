@@ -12,20 +12,36 @@ using namespace std;
 #define debug(args...)
 #endif
 
+//https://lightoj.com/problem/palindromic-numbers-ii
+bool palindrome( string s){
 
+    int i = 0 , j = s.size()-1;
 
+    while (i<j)
+    {
+       if( s[i] != s[j]) return false;
+       i++;
+       j--;
+    }
+
+    return true;
+    
+}
 int main()
 {
-    fast
+    //fast
 
-    int t=1;
+    int t=1,tt=1;
     cin>>t;
 
     while (t--)
     {
-        char ch; cin >> ch;
+        string s; cin >> s;
 
-        cout << isalpha(ch) << endl;
+        printf("Case %d: ",tt++);
+
+        if( palindrome(s) ) cout << "Yes" << endl;
+        else cout << "No" << endl;
     }
     
 
@@ -33,6 +49,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  22-January-2024  20:52:51
+Created:  22-January-2024  20:07:38
 */ 
  
