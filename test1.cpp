@@ -1,78 +1,92 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll         long long int
+#define sort(x)    sort(x.begin(),x.end())
+#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
+#define endl       "\n"
+#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
+#ifdef LOKAL
+#include "DEBUG_TEMPLATE.h"
+#else
+#define HERE
+#define debug(args...)
+#endif
 
-vector<int> marge_sort(vector<int>a){
 
-    //base case
-    if (a.size()<=1)
-    {
-        return a;
+class SegmentTree{
+    vector<int>seg;
+    public:
+    SegmentTree(int n){
+        seg.resize(4*n  + 1 );
     }
 
-    int mid = a.size()/2;
-
-    vector<int>b;
-    vector<int>c;
-
-    for (int i = 0; i < mid; i++)
-    {
-        b.push_back(a[i]); // b vector a element pathalam
-
-    }
-
-    for (int i = mid; i < a.size() ; i++)
-    {
-        c.push_back(a[i]);
-    }
-
-    vector<int>sorted_b = marge_sort(b); //recursive call to this function
-    vector<int>sorted_c = marge_sort(c);
-
-    vector<int>sorted_a; // will return this
-    int idx1 = 0;
-    int idx2 = 0;
-    
-    for (int i = 0; i < a.size(); i++)
-    {
-        if (idx1==sorted_b.size())
-        {
-            sorted_a.push_back(sorted_c[idx2]);
-            idx2++;
+    void build(int index , int low , int high , vector<int>&v){
+        if(low == high){
+            seg[index] = v[low];
+            return;
         }
-        else if (idx2==sorted_c.size())
-        {
-            sorted_a.push_back(sorted_b[idx1]);
-            idx1++;
-        }
-        else if (sorted_b[idx1]<sorted_c[idx2])
-        {
-            sorted_a.push_back(sorted_b[idx1]);
-            idx1++;
-        }else
-        {
-            sorted_a.push_back(sorted_c[idx2]);
-            idx2++; 
-        }
-        
-        
+
+        int mid = (low + high)/2;
+
+        build(2*index+1 , low , mid , v);
+        build(2*index+2 , mid+1 , high , v);
+
+        seg[index] = min( seg[2*index+1] , seg[2*index+2]);
     }
-    
-    return sorted_a;
-    
-    
-}
 
-int main(){
+    int query(int index , int low , int high , int l , int r){
 
-    vector<int>a= {7 ,3, 2, 5, 4, 3};
-    vector<int>ans = marge_sort(a);
+        if( r < low || high < l) return INT_MAX;
 
-    for (int i = 0; i < ans.size(); i++)
-    {
-        cout<<ans[i]<<" ";
+        if( low >= l && high <= r) return seg[index];
+
+        int mid = (low + high) >> 1;
+
+        int left = query(2*index+1 , low , mid  , l , r);
+        int right = query(2*index+2 , mid+1 , high , l ,r);
+
+        return min(left , right);
     }
+
+
+    void update(int index ,int low , int high , int i , int val){
+
+        if( low == high){
+            seg[index] = val;
+            return;
+        }
+
+        int mid = (low + high)/2;
+
+        if( i <= mid) update(2*index+1 , low , mid , i , val);
+        else update(2*index+2 , mid+1 , high , i , val);
+
+        seg[index] = min( seg[2*index+1] , seg[2*index+2]);
+
+    }
+
+
+};
+int main()
+{
+    fast
+
+    int n; cin >> n;
+    vector<int>v(n);
+    forin(v, n);
+
+    SegmentTree sg(n);
+    sg.build(0, 0 , n-1 , v);
+
+    cout << sg.query( 0 , 0 , n-1 , 3 , 7) << endl;
+    sg.update(0, 0 , n-1 , 4 , 1);
+    cout << sg.query( 0 , 0 , n-1 , 3 , 7) << endl;
     
 
     return 0;
 }
-
+/*
+Author: Rafi Shariar
+Created:  27-January-2024  21:41:38
+*/ 
+ 
