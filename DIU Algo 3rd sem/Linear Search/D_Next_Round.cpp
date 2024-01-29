@@ -13,32 +13,30 @@ using namespace std;
 #endif
 
 
-
+//https://vjudge.net/contest/575132#problem/D
 int main()
 {
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-        string s; cin >> s;
+        int n,k;
+        cin >> n >> k;
+        vector<int>v(n);
+        forin(v,n);
 
-        int alex = 0;
+        int c = 0;
 
-        for (int i = 0; i < s.size(); i+=2)
+        for (int i = 0; i < n; i++)
         {
-            if( s[i] == s[i+1]){
-                
-                if(alex) alex = 0;
-                else alex = 1;
-
-            }
-            else break;
+            if( v[i] >= v[k] && v[i] > 0) c++;
         }
 
-        cout << alex << endl;
+        cout << c << endl;
+        
         
     }
     
@@ -47,6 +45,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  29-January-2024  13:44:01
+Created:  29-January-2024  18:49:35
 */ 
  

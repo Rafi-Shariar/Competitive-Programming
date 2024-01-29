@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://vjudge.net/contest/575132#problem/F
 int main()
 {
     fast
@@ -23,22 +23,24 @@ int main()
 
     while (t--)
     {
-        string s; cin >> s;
+        int n; cin >> n;
+        vector<int>v(n);
+        forin(v,n);
 
-        int alex = 0;
+        int dif = INT_MIN;
 
-        for (int i = 0; i < s.size(); i+=2)
+        int mx = v[0];
+
+        for (int i = 1; i < n; i++)
         {
-            if( s[i] == s[i+1]){
-                
-                if(alex) alex = 0;
-                else alex = 1;
-
-            }
-            else break;
+            dif = max( dif , mx - v[i]);
+            mx = max(mx , v[i]);
         }
 
-        cout << alex << endl;
+        cout << dif << endl;
+        
+        
+        
         
     }
     
@@ -47,6 +49,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  29-January-2024  13:44:01
+Created:  29-January-2024  18:58:53
 */ 
  

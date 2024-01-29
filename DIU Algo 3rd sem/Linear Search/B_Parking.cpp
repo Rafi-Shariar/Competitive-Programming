@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=2349&mosmsg=Submission+received+with+ID+29162591
 int main()
 {
     fast
@@ -23,23 +23,14 @@ int main()
 
     while (t--)
     {
-        string s; cin >> s;
+        int n; cin >> n;
+        vector<int>v(n);
+        forin(v,n);
 
-        int alex = 0;
+        sort(v);
 
-        for (int i = 0; i < s.size(); i+=2)
-        {
-            if( s[i] == s[i+1]){
-                
-                if(alex) alex = 0;
-                else alex = 1;
+        cout << 2 * abs(v[0] - v[n-1]) << endl;
 
-            }
-            else break;
-        }
-
-        cout << alex << endl;
-        
     }
     
 
@@ -47,6 +38,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  29-January-2024  13:44:01
+Created:  29-January-2024  18:44:42
 */ 
  
