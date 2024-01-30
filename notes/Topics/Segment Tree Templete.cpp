@@ -66,6 +66,7 @@ class SegmentTree{
     }
 
 
+
 };
 int main()
 {

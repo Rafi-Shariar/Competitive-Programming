@@ -23,8 +23,32 @@ int main()
 
     while (t--)
     {
-        int n; cin >> n;
-        cout << (int)log2(n) << endl;
+        int n;
+        cin >> n;
+        vector<int>a(n),b(n);
+
+        for (int i = 0; i < n; i++) cin >> a[i];
+
+        for (int i = 0; i < n; i++) cin >> b[i];
+
+        sort(a);
+        sort(b);
+
+        for (int i = 0; i < n; i++)
+        {
+            if( a[i] != b[i]){
+                cout << "no" << endl;
+                return 0;
+            }
+        }
+
+        cout << "yes" << endl;
+        
+      
+
+
+        
+        
     }
     
 
@@ -32,6 +56,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  29-January-2024  21:38:06
+Created:  29-January-2024  21:29:05
 */ 
  

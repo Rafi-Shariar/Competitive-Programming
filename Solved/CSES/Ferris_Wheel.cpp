@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://cses.fi/problemset/task/1090/
 int main()
 {
     fast
@@ -23,28 +23,35 @@ int main()
 
     while (t--)
     {
-        int k,n; cin >> k >> n;
+        int n,k;
+        cin >> n >> k;
         vector<int>v(n);
         forin(v,n);
+        sort(v);
 
-        priority_queue<int, vector<int> , greater<int>>pq;
+        int l=0 , r = n-1;
+        int c = 0;
 
-        for(int i =0 ; i<n; i++) pq.push(v[i]);
-
-        ll ans = 0;
-
-        while (pq.size() > 1)
+        while (l<=r)
         {
-           int a = pq.top(); pq.pop();
-           int b = pq.top(); pq.pop();
+            if( v[l] + v[r] <= k){
+                l++;
+                r--;
+                c++;
+            }
+            else
+            {
+                c++;
+                r--;
 
-           cout << a << " " << b << endl;
+            }
+            
 
-           ans += (a+b);
-           pq.push(a+b);
+
         }
 
-         cout << ans << endl;
+        cout << c << endl;
+        
         
     }
     
@@ -53,6 +60,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  30-January-2024  12:00:00
+Created:  30-January-2024  12:32:07
 */ 
  

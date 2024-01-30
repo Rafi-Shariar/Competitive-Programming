@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://vjudge.net/contest/556835#problem/U
 int main()
 {
     fast
@@ -23,28 +23,35 @@ int main()
 
     while (t--)
     {
-        int k,n; cin >> k >> n;
+        int n,m;
+        cin >> n >> m;
         vector<int>v(n);
         forin(v,n);
 
-        priority_queue<int, vector<int> , greater<int>>pq;
-
-        for(int i =0 ; i<n; i++) pq.push(v[i]);
-
-        ll ans = 0;
-
-        while (pq.size() > 1)
+        deque<int>dq;
+        for (int i = 0; i < m; i++)
         {
-           int a = pq.top(); pq.pop();
-           int b = pq.top(); pq.pop();
-
-           cout << a << " " << b << endl;
-
-           ans += (a+b);
-           pq.push(a+b);
+            int a; cin >> a;
+            dq.push_back(a);
         }
 
-         cout << ans << endl;
+
+        bool flag = true;
+
+        for (int i = 0; i < n; i++)
+        {
+            int value = v[i];
+
+            if( value == dq.front()){
+                dq.pop_front();
+            }
+        }
+
+
+        if(dq.empty()) cout << "YES" << endl;
+        else cout << "NO" << endl;
+        
+        
         
     }
     
@@ -53,6 +60,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  30-January-2024  12:00:00
+Created:  30-January-2024  13:18:29
 */ 
  
