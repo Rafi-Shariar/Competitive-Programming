@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://www.codechef.com/START119C/problems/ADVITIYA3
 int main()
 {
     fast
@@ -23,7 +23,27 @@ int main()
 
     while (t--)
     {
-        cout << 1 ;
+        int n,k;
+        cin >> n >> k;
+        vector<int>v(n);
+        forin(v,n);
+
+        int ans = INT_MAX;
+
+        bool pos = false;
+
+        for (int i = 0; i < n; i++)
+        {
+            if( v[i] >= k){
+
+                ans = min(ans , v[i]%k);
+                pos = true;
+            }
+        }
+
+        if( !pos) cout << -1 << endl;
+        else cout << ans << endl;
+        
     }
     
 
@@ -31,6 +51,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  31-January-2024  21:42:18
+Created:  31-January-2024  20:35:45
 */ 
  

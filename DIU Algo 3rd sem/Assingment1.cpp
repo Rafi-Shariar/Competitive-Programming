@@ -19,11 +19,34 @@ int main()
     fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-        cout << 1 ;
+        int n; cin >> n;
+        map<int,int>mp;
+
+        for (int i = 0; i < n; i++)
+        {
+            int a; cin >> a;
+            mp[a]++;
+        }
+
+        int mn = 0;
+        int ans;
+        
+        for(auto i : mp){
+
+            if(i.second >= mn){
+                mn = i.second;
+                ans = i.first;
+            }
+
+        }
+
+        cout << ans << endl;
+        
+        
     }
     
 
@@ -31,6 +54,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  31-January-2024  21:42:18
+Created:  31-January-2024  23:46:39
 */ 
  

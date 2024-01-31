@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://www.codechef.com/START119C/problems/ADVITIYA2
 int main()
 {
     fast
@@ -23,7 +23,17 @@ int main()
 
     while (t--)
     {
-        cout << 1 ;
+        vector<int>v(5);
+        forin(v,5);
+
+        int c = 0;
+
+        for(auto i : v){
+            if( i == 1) c++;
+        }
+
+        if(c >= 4) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
     
 
@@ -31,6 +41,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  31-January-2024  21:42:18
+Created:  31-January-2024  20:31:36
 */ 
  
