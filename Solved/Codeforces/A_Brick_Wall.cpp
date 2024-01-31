@@ -16,25 +16,24 @@ using namespace std;
 
 int main()
 {
+    fast
 
-    char arr[100];
-    scanf("%s",arr);
-    int len = strlen(arr);
+    int t=1;
+    cin>>t;
 
-    for (int i = 0; i < len; i++)
+    while (t--)
     {
-        char ch = arr[i];
-        ch++;
-        printf("%c",ch) ;
-    }
+        int n,m;
+        cin >> n >> m;
 
-    cout << endl;
+        cout << n*(m/2) << endl;
+    }
     
 
     return 0;
 }
 /*
 Author: Rafi Shariar
-Created:  31-January-2024  12:13:49
+Created:  30-January-2024  20:38:38
 */ 
  

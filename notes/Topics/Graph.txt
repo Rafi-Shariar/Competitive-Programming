@@ -1,0 +1,30 @@
+                             *** BFS *** 
+const int N = 1e5+7;
+bool visited[N];
+vector<int>adj_list[N];
+
+void BFS(int src){
+
+    queue<int>q;
+    visited[src] = true;
+    q.push(src);
+
+    while (!q.empty())
+    {
+        int node = q.front();
+        q.pop();
+        cout << node << " ";
+
+        for(auto i : adj_list[node]){
+             
+             if( !visited[i]){
+                visited[i] = true;
+                q.push(i);
+             }
+        }
+    }
+    
+
+}
+
+
