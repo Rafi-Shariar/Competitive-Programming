@@ -12,38 +12,40 @@ using namespace std;
 #define debug(args...)
 #endif
 
+
+//https://codeforces.com/contest/1060/problem/A
 int main()
 {
-    //fast
+    fast
 
-    int t=1,tt=1;
-    cin>>t;
+    int t=1;
+    //cin>>t;
 
     while (t--)
     {
-        int n,q;
-        cin >> n >> q;
-        vector<int>v(n);
-        forin(v,n);
-        sort(v);
+        int n; cin >> n;
+        string s; cin >> s;
 
-        printf("Case %d:\n",tt++);
+        int c = 0;
 
-        while (q--)
-        {
-            int l,r;
-            cin >> l >> r;
+        for(auto i : s){
 
-            int it = upper_bound(v.begin() , v.end() , r) - lower_bound(v.begin() , v.end() , l);
-
-            cout << it << endl;
-
-            
+            if( i == '8') c++;
         }
-        
 
+        int pos = s.size() / 11;
+
+        cout << min(pos,c) << endl;
+
+
+        
     }
     
 
     return 0;
 }
+/*
+Author: Rafi Shariar
+Created:  01-February-2024  21:34:35
+*/ 
+ 

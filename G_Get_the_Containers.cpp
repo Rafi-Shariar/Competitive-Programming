@@ -12,24 +12,22 @@ using namespace std;
 #define debug(args...)
 #endif
 
-//https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3183
-bool pos(vector<int>&v, int x){
 
-    if( v[0] > x ) return false;
-    if( v[0] == x) x--;
+int pos(vector<int>&v, int x, int k){
 
-    for (int i = 1; i < v.size(); i++)
+    int c = 1;
+    int sum = 0;
+
+    for (int i = 0; i < v.size(); i++)
     {
-        int dis = v[i] - v[i-1] ;
-
-        if( dis > x) return false;
-
-        if( dis == x) x--;
+        if( sum + v[i] > x){
+            c++;
+            sum = v[i];
+        }
+        else sum += v[i];
     }
-
-    return true;
     
-
+    return c;
 }
 int main()
 {
@@ -40,27 +38,40 @@ int main()
 
     while (t--)
     {
-        int n; cin >> n;
+        int n,k;
+        cin >> n >> k;
         vector<int>v(n);
         forin(v,n);
 
-        printf("Case %d: ",tt++);
+        int high = 0;
+        high = accumulate(v.begin() , v.end() , high);
 
-        int low = 0 , high = 1e9 , ans = 0;
+        int low = *max_element(v.begin() , v.end());
 
-        while (low <= high)
+        int ans = 0;
+
+        while (low <=  high)
         {
-            int mid = low + (high-low)/2;
+            int mid = low + (high - low )/2;
 
-            if(pos(v,mid)){
+            int now = pos(v,mid , k);
+
+            if( now <= k){
                 ans = mid;
                 high = mid - 1;
             }
             else low = mid + 1;
+
         }
+
+        printf("Case %d: ",tt++);
+
+
+
 
         cout << ans << endl;
         
+
     }
     
 
@@ -68,6 +79,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  01-February-2024  22:16:44
+Created:  01-February-2024  23:42:50
 */ 
  
