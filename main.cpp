@@ -1,40 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll         long long int
-#define sort(x)    sort(x.begin(),x.end())
-#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
-#define endl       "\n"
-#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
 
+#define ll long long int
+#define fast ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
 
+const int N = 1e6;
+vector<vector<ll>> v;
 
-int main()
-{
+void numberofDivisor(ll n) {
+    ll num = n;
+    vector<ll> temp;  // Temporary vector to store values for 'n'
 
-    char arr[100];
-    scanf("%s",arr);
-    int len = strlen(arr);
+    // ... (rest of the code remains the same)
 
-    for (int i = 0; i < len; i++)
-    {
-        char ch = arr[i];
-        ch++;
-        printf("%c",ch) ;
+    temp.push_back(sm_PF);
+    temp.push_back(bigPF);
+    temp.push_back(disPF);
+    temp.push_back(TotPF);
+    temp.push_back(numDiv);
+
+    v.push_back(temp);  // Push the temporary vector into the main vector
+}
+
+void find_div(ll n) {
+    ll num = n;
+    vector<ll> temp;  // Temporary vector to store values for 'n'
+
+    // ... (rest of the code remains the same)
+
+    temp.push_back(sumDiv);
+
+    v.push_back(temp);  // Push the temporary vector into the main vector
+}
+
+int main() {
+    fast
+    v.reserve(N);  // Reserve space for N vectors to avoid frequent reallocation
+
+    for (int i = 0; i <= 1000000; i++) {
+        numberofDivisor(i);
+        find_div(i);
     }
 
-    cout << endl;
-    
+    int t = 1;
+    cin >> t;
+
+    while (t--) {
+        ll n;
+        cin >> n;
+
+        // Assuming v[n] contains only one vector with sum values
+        cout << v[n][0] << " " << v[n][1] << " " << v[n][2] << " " << v[n][3] << " " << v[n][4] << endl;
+    }
 
     return 0;
 }
-/*
-Author: Rafi Shariar
-Created:  31-January-2024  12:13:49
-*/ 
- 

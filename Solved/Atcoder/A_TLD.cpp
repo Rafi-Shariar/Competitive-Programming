@@ -12,43 +12,40 @@ using namespace std;
 #define debug(args...)
 #endif
 
+//https://atcoder.jp/contests/abc339/tasks/abc339_a
 
+int main()
+{
+    fast
 
- int main(){
+    int t=1;
+    //cin>>t;
 
-    int t;
-    cin>>t;
-
-    vector<int>host;
-    vector<int>guest;
-
-    for (int i = 1; i <= t; i++)
+    while (t--)
     {
-        int h,g;
-        cin>>h>>g;
+        string s; cin >> s;
 
-        host.push_back(h);
-        guest.push_back(g);
-    }
+        string ans = "";
 
-    int times=0;
-
-    for (int i = 0; i < t; i++)
-    {
-        for (int j = 0; j < t; j++)
+        for (int i = s.size()-1; i >=0; i--)
         {
-            if(host[i] == guest[j]) times++;
+            if( s[i] == '.') break;
+
+            ans += s[i];
         }
+
+        reverse(ans.begin() , ans.end());
+
+        cout << ans << endl;
+        
         
     }
-
-    cout<<times<<endl;
     
-    
-
-
-
-
 
     return 0;
- } 
+}
+/*
+Author: Rafi Shariar
+Created:  03-February-2024  18:00:53
+*/ 
+ 

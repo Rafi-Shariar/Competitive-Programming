@@ -13,32 +13,40 @@ using namespace std;
 #endif
 
 
-//https://vjudge.net/contest/575132#problem/D
-int main(){
- 
-    int n,k;
-    cin >> n >> k;
- 
-    vector<int>v(n+1);
- 
-    for (int i = 1; i <= n; i++) cin>>v[i];
- 
-    int val = v[k];
- 
-    int c=0;
- 
-    for(int i=1; i<=n; i++){
- 
-        if(v[i]>=val && v[i]>0)c++;
+ll mod = 998244353;
+
+
+int main()
+{
+    fast
+
+    int t=1;
+    //cin>>t;
+
+    while (t--)
+    {
+        ll n;
+        cin >> n;
+
+        ll ans = 1;
+
+        for (int i = 1; i <= n; i++)
+        {
+            ans = (ans * i ) % mod;
+        }
+
+        cout << ans << endl;
+        
+
+
+        
     }
- 
-    cout<<c<<endl;
     
-    
+
     return 0;
 }
 /*
 Author: Rafi Shariar
-Created:  29-January-2024  18:49:35
+Created:  04-February-2024  00:53:34
 */ 
  
