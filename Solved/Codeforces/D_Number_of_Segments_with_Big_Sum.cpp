@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 #define ll         long long int
@@ -13,7 +12,7 @@ using namespace std;
 #define debug(args...)
 #endif
 
-
+//https://codeforces.com/edu/course/2/lesson/9/2/practice/contest/307093/problem/D
 
 int main()
 {
@@ -24,34 +23,31 @@ int main()
 
     while (t--)
     {
-        int n; cin >> n;
-        vector<int>v(n);
+        ll n,k;
+        cin >> n >> k;
+        vector<ll>v(n);
         forin(v,n);
 
-        int search; cin >> search ;
+        ll segs = 0 , sum = 0;
+        int j = 0;
 
-
-        int low = 0 , high = n-1 , ans = -1;
-
-        while (low <= high)
+        for (int i = 0; i < n; i++)
         {
-            int mid = low + (high - low)/2;
-
-            if( v[mid] == search){
-                ans = mid;
-                cout << "Index : " << mid << endl;
-                break;
+            while ( j < n and sum + v[j] < k)
+            {
+                sum += v[j];
+                j++;
             }
 
-            if( v[mid] < search){
-                low = mid + 1;
-            }
-            else high = mid - 1;
+            segs += n - j;
+            sum -= v[i];
+            
+             
         }
 
-
-        if( ans == -1 ) cout << "Not Available" << endl;
+        cout << segs << endl;
         
+
         
     }
     
@@ -60,6 +56,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  05-February-2024  12:42:28
+Created:  05-February-2024  19:05:42
 */ 
  

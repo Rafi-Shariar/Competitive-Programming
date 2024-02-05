@@ -1,36 +1,87 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ll         long long int
+#define sort(x)    sort(x.begin(),x.end())
+#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
+#define endl       "\n"
+#define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
+#ifdef LOKAL
+#include "DEBUG_TEMPLATE.h"
+#else
+#define HERE
+#define debug(args...)
+#endif
 
-int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
 
-    int n, k;
-    cin >> n >> k;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
+int pos(vector<int>&v, int mid, int k){
 
-    stack<int> st;
-    int ans = 0;  // Initialize ans to 0
+    int c = 1;
+    int sum = 0;
 
-    for (int i = 0; i < n; i++) {
-        if (st.empty() || abs(st.top() - v[i]) <= k) {
-            st.push(v[i]);
-        } else {
-            while (!st.empty() && abs(st.top() - v[i]) > k) {
-                st.pop();
-            }
-            st.push(v[i]);
+    for (int i = 0; i < v.size(); i++)
+    {
+        if( sum + v[i] > mid){
+           c++;
+           sum = v[i];
         }
-
-        int sz = st.size();
-        ans = max(ans, sz);
+        else
+        {
+            sum += v[i];
+        }
+        
     }
 
-    cout << ans << endl;
+
+   
+    
+
+    //cout << mid << "--" << c << endl;
+
+    return c ;
+    
+}
+int main()
+{
+    fast
+
+    int t=1;
+    //cin>>t;
+
+    while (t--)
+    {
+        int n,k;
+        cin >> n >> k;
+        vector<int>v(n);
+        forin(v,n);
+
+        for (int i = 1; i <= 12; i++)
+        {
+            cout << i << "--" << pos(v,i,k) << endl;
+        }
+        
+
+        // int low = 1 , high = 1e6 + 1 , ans = 1;
+
+        // while (low <= high)
+        // {
+        //     int mid = low + (high - low)/2;
+
+        //     if(pos(v,mid,k)){
+        //         ans = mid;
+        //         high = mid - 1;
+        //     }
+        //     else low = mid + 1;
+        // }
+
+        // cout << ans << endl;
+        
+    }
+    
 
     return 0;
 }
+/*
+Author: Rafi Shariar
+Created:  05-February-2024  22:43:09
+*/ 
+ 
