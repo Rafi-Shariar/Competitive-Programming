@@ -50,3 +50,22 @@ for (int i = 1; i <=1000000; i++)
         arr[j]++;
     }
 }
+
+
+
+//sum of divisors 10^6
+const int N = 1e6+2;
+vector<int>sums(N);
+
+void precal(){
+
+    for (int i = 1; i <= N; i++)
+    {
+        for (int j = i; j <= N; j+=i)
+        {
+            sums[j] += i;
+        }
+        
+    }
+    
+}
