@@ -13,50 +13,42 @@ using namespace std;
 #endif
 
 
-
+//https://atcoder.jp/contests/abc340/tasks/abc340_b
 int main()
 {
-    //fast
+    fast
 
     int t=1;
-    cin>>t;
+    //cin>>t;
 
     while (t--)
     {
-        int n,q;
-        cin >> n >> q;
-        vector<ll>v(n+1,0);
+        int q; cin >> q;
+        deque<int>dq;
 
         while (q--)
         {
-            ll l,r,x;
-            cin >> l >> r >> x;
+            int a,b;
+            cin >> a >> b;
 
-            v[l] += x;
-            v[r+1] += -x; 
+            if( a == 1){
+                dq.push_front(b);
+            }
+            else
+            {
+                cout << dq[b-1] << endl;
+            }
             
         }
-
-
-        for (int i = 1; i <= n; i++)
-        {
-            v[i] += v[i-1];
-        }
         
-
-
-        int p; cin >> p;
-
-        while (p--)
-        {
-            int ind; cin >> ind;
-
-            cout << v[ind] << endl;
-        }
         
     }
     
+
     return 0;
 }
-
+/*
+Author: Rafi Shariar
+Created:  10-February-2024  18:03:55
+*/ 
  
