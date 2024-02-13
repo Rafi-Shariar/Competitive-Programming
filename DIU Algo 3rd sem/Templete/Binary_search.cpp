@@ -13,20 +13,22 @@ using namespace std;
 #endif
 
 
-void Bubble_sort( vector<int>&v){
+int BS( vector<int>&v , int target){
 
-    for (int i = 0; i < v.size()-1; i++)
+    int low = 0 , high = v.size() - 1 ,ans = -1;
+
+    while (low <= high)
     {
-        for (int j = i+1; j < v.size()-1; j++)
-        {
-            if( v[j] > v[j+1]){
-                
-                swap ( v[j] , v[j+1]);
-            }
-        }
-        
+        int mid = low + (high-low)/2;
+
+        if( v[mid] == target) return mid;
+
+        if( v[mid] < target) low = mid + 1;
+        else high = mid - 1;
     }
-    
+
+    return -1;
+     
 }
 int main()
 {
@@ -36,10 +38,9 @@ int main()
     vector<int>v(n);
     forin(v,n);
 
-    Bubble_sort(v);
+    int target; cin >> target;
 
-    for(auto i : v) cout << i << " ";
-    cout << endl;
+    cout << BS(v,target) << endl;
     
 
     return 0;
