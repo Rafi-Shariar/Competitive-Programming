@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+//https://codeforces.com/contest/1931/problem/A
 int main()
 {
     fast
@@ -36,7 +36,7 @@ int main()
                     int now = i + j + k;
         
 
-                    if( now == n){
+                    if( now == n && !found){
 
                         char x = 96 + i;
                         char y = 96 + j;
