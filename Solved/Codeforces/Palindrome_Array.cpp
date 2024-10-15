@@ -16,28 +16,30 @@ int main()
 
     while (t--)
     {
+
         int n; cin >> n;
-        int arr[n];
+        vector<int>v(n);
 
         for (int i = 0; i < n; i++)
         {
-            cin >> arr[i];
+            cin >> v[i];
         }
 
-        int target; cin >> target;
+        int i = 0 , j = n-1;
 
-        for (int i = 0; i < n; i++)
+        while (i < j)
         {
-            if( arr[i] == target){
-
-                cout << i << endl;
+            if(v[i] != v[j]){
+                cout << "NO" << endl;
                 return 0;
-
             }
+            i++;
+            j--;
         }
+        
 
-        cout << -1 << endl;
-    
+        cout << "YES" << endl;
+        
         
         
     }
@@ -47,6 +49,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  15-October-2024  16:27:44
+Created:  15-October-2024  17:47:33
 */ 
  

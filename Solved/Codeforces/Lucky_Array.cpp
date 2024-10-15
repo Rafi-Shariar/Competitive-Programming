@@ -17,26 +17,22 @@ int main()
     while (t--)
     {
         int n; cin >> n;
-        int arr[n];
+        
+        map<int,int>mp;
+        int smallest = INT_MAX;
 
         for (int i = 0; i < n; i++)
         {
-            cin >> arr[i];
+            int a; cin >> a;
+            mp[a] ++;
+            smallest = min(smallest , a);
         }
 
-        int target; cin >> target;
+        if( mp[smallest] % 2 == 0) cout << "Unlucky" << endl;
+        else cout << "Lucky" << endl;
 
-        for (int i = 0; i < n; i++)
-        {
-            if( arr[i] == target){
 
-                cout << i << endl;
-                return 0;
-
-            }
-        }
-
-        cout << -1 << endl;
+        
     
         
         
@@ -47,6 +43,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  15-October-2024  16:27:44
+Created:  15-October-2024  18:56:40
 */ 
  

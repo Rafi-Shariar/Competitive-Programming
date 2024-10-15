@@ -12,8 +12,15 @@ using namespace std;
 #define debug(args...)
 #endif
 
+//https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/T
+int ncr(int n , int r){
 
+    if( n < 0 || r < 0 || n < r) return 0;
 
+    if( n == 0) return 1;
+
+    return ncr(n-1,r) + ncr(n-1,r-1);
+}
 int main()
 {
     fast
@@ -23,12 +30,10 @@ int main()
 
     while (t--)
     {
-        for (int i = 0; i <=30; i++)
-        {
-            cout << i << " --> " << pow(5,i) << endl;
-        }
-        
-        
+        int n,r;
+        cin >> n >> r;
+
+        cout << ncr(n,r) << endl;
     }
     
 
@@ -36,6 +41,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  27-July-2024  17:13:01
+Created:  15-February-2024  23:41:31
 */ 
  

@@ -12,23 +12,28 @@ using namespace std;
 #define debug(args...)
 #endif
 
+//https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/W
+bool pos(ll n , ll x){
 
+    if( x == n) return true;
+    else if ( x > n ) return false;
 
+    return pos(n , x*10) || pos(n , x*20);
+}
 int main()
 {
     fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
     while (t--)
     {
-        for (int i = 0; i <=30; i++)
-        {
-            cout << i << " --> " << pow(5,i) << endl;
-        }
-        
-        
+        ll n; cin >> n;
+        ll x = 1;
+
+        if( pos(n,x) ) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
     
 
@@ -36,6 +41,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  27-July-2024  17:13:01
+Created:  16-February-2024  10:27:04
 */ 
  

@@ -13,7 +13,7 @@ using namespace std;
 #endif
 
 
-
+const ll mod = 1e9+7;
 int main()
 {
     fast
@@ -23,10 +23,35 @@ int main()
 
     while (t--)
     {
-        for (int i = 0; i <=30; i++)
+        int n; cin >> n;
+        vector<ll>v(n);
+        forin(v,n);
+
+        ll sum = 0;
+
+        for (int i = 0; i < n; i++)
         {
-            cout << i << " --> " << pow(5,i) << endl;
+            sum += v[i];
+            sum%=mod;
         }
+
+        ll ans = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            sum -= v[i];
+            if( sum < 0 ) sum += mod;
+
+            ans += ( v[i] * sum);
+            ans %= mod;
+        }
+
+        cout << ans << endl;
+
+        
+
+
+        
         
         
     }
@@ -36,6 +61,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  27-July-2024  17:13:01
+Created:  15-February-2024  23:53:02
 */ 
  

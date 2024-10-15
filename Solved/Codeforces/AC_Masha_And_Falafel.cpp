@@ -13,21 +13,28 @@ using namespace std;
 #endif
 
 
-
+//https://vjudge.net/contest/576547#problem/AC
 int main()
 {
     fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
     while (t--)
     {
-        for (int i = 0; i <=30; i++)
+        int n; cin >> n;
+        set<int>st;
+
+        while (n--)
         {
-            cout << i << " --> " << pow(5,i) << endl;
+            int x; cin >> x;
+            st.insert(x);
+
+            cout << st.size() << " ";
         }
-        
+
+        cout << endl;
         
     }
     
@@ -36,6 +43,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  27-July-2024  17:13:01
+Created:  16-February-2024  21:50:45
 */ 
  

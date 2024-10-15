@@ -2,8 +2,15 @@
 using namespace std;
 #define ll         long long int
 #define sort(x)    sort(x.begin(),x.end())
+#define forin(x,n)  for(int i=0; i<n; i++) cin>>x[i];
 #define endl       "\n"
 #define fast       ios_base::sync_with_stdio(0); cin.tie(0) ; cout.tie(0);
+#ifdef LOKAL
+#include "DEBUG_TEMPLATE.h"
+#else
+#define HERE
+#define debug(args...)
+#endif
 
 
 
@@ -12,32 +19,25 @@ int main()
     fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
     while (t--)
     {
-        int n; cin >> n;
-        int arr[n];
+        int n,k;
+        cin >> n >> k;
+
+        int ans = -1;
 
         for (int i = 0; i < n; i++)
         {
-            cin >> arr[i];
+            int x; cin >> x;
+            ans &= x;
         }
 
-        int target; cin >> target;
+        if( ans < k) cout << "YES" << endl;
+        else cout << "NO" << endl;
 
-        for (int i = 0; i < n; i++)
-        {
-            if( arr[i] == target){
 
-                cout << i << endl;
-                return 0;
-
-            }
-        }
-
-        cout << -1 << endl;
-    
         
         
     }
@@ -47,6 +47,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  15-October-2024  16:27:44
+Created:  16-February-2024  11:02:48
 */ 
  

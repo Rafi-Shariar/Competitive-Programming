@@ -13,22 +13,31 @@ using namespace std;
 #endif
 
 
-
+//https://www.codechef.com/problems/EVENPSUM
 int main()
 {
     fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
     while (t--)
     {
-        for (int i = 0; i <=30; i++)
-        {
-            cout << i << " --> " << pow(5,i) << endl;
-        }
-        
-        
+        ll A,B;
+        cin >> A >> B;
+
+        ll odd_a = A/2 ;
+        if( A & 1) odd_a++;
+        ll even_a = A/2;
+
+        ll odd_b = B/2;
+        if( B & 1) odd_b ++;
+        ll even_b = B/2;
+
+        cout << (odd_a * odd_b) + (even_a * even_b) << endl;
+
+
+
     }
     
 
@@ -36,6 +45,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  27-July-2024  17:13:01
+Created:  16-February-2024  11:22:08
 */ 
  

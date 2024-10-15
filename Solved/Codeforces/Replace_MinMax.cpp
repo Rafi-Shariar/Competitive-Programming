@@ -17,27 +17,30 @@ int main()
     while (t--)
     {
         int n; cin >> n;
-        int arr[n];
+        vector<int>v(n);
+
+        int minn = 1e6 , maxx = -1e6;
+        for (int i = 0; i < n; i++)
+        {
+            cin >> v[i];
+            minn = min(minn , v[i]);
+            maxx = max(maxx , v[i]);
+        }
 
         for (int i = 0; i < n; i++)
         {
-            cin >> arr[i];
+            if( v[i] == minn) v[i]  = maxx;
+            else if( v[i] == maxx) v[i] = minn;
         }
-
-        int target; cin >> target;
 
         for (int i = 0; i < n; i++)
         {
-            if( arr[i] == target){
-
-                cout << i << endl;
-                return 0;
-
-            }
+            cout << v[i] << " ";
         }
+        
+        
 
-        cout << -1 << endl;
-    
+
         
         
     }
@@ -47,6 +50,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  15-October-2024  16:27:44
+Created:  15-October-2024  19:24:55
 */ 
  

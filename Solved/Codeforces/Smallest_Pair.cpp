@@ -12,32 +12,31 @@ int main()
     fast
 
     int t=1;
-    //cin>>t;
+    cin>>t;
 
     while (t--)
     {
         int n; cin >> n;
-        int arr[n];
-
-        for (int i = 0; i < n; i++)
+        vector<int>v(n+1);
+        for (int i = 1; i <= n; i++)
         {
-            cin >> arr[i];
+            cin >> v[i];
         }
 
-        int target; cin >> target;
+        int smallest = INT_MAX;
 
-        for (int i = 0; i < n; i++)
+        for (int i = 1; i <= n; i++)
         {
-            if( arr[i] == target){
+            for (int j = i+1; j <= n; j++)
+            {
+                int res = v[i] + v[j] + j - i;
 
-                cout << i << endl;
-                return 0;
-
+                smallest = min(smallest,res);
             }
+            
         }
 
-        cout << -1 << endl;
-    
+        cout << smallest << endl;
         
         
     }
@@ -47,6 +46,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  15-October-2024  16:27:44
+Created:  15-October-2024  18:52:45
 */ 
  

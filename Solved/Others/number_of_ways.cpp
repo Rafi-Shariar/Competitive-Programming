@@ -13,7 +13,13 @@ using namespace std;
 #endif
 
 
+int pos( int s , int e){
 
+    if( s == e) return 1;
+    else if ( s > e) return 0;
+
+    return pos(s+1 , e) + pos(s+2 , e) + pos(s+3 , e);
+}
 int main()
 {
     fast
@@ -23,11 +29,10 @@ int main()
 
     while (t--)
     {
-        for (int i = 0; i <=30; i++)
-        {
-            cout << i << " --> " << pow(5,i) << endl;
-        }
-        
+        int s,e;
+        cin >> s >> e;;
+
+        cout << pos(s,e) << endl;
         
     }
     
@@ -36,6 +41,6 @@ int main()
 }
 /*
 Author: Rafi Shariar
-Created:  27-July-2024  17:13:01
+Created:  16-February-2024  10:32:07
 */ 
  
